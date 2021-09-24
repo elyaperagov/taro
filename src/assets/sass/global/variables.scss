@@ -1,0 +1,38 @@
+// Default
+
+$color-default-black: #000;
+$color-default-white: #fff;
+$color-transparent: rgba(0, 0, 0, 0);
+
+/* general */
+$mobiles: 320px;
+$mobiles-max: 767px;
+$tablets: 768px;
+$tablets-max: 1023px;
+$desktops: 1024px;
+$container: 1200px;
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
+$transition-settings: 0.3s all;
+
+// Base
+
+$color-black: #111;
+$color-light-black: #222;
+$color-middle-gray: #72717b;
+$color-form-gray: #ededed;
+$color-gray: #c1c1c1;
+
+$color-light-gray: #CFCFCF;
+$color-white: #fff;
+$color-gold: #F69A57;
+$color-light-brown: #f7e5be;
+$color-red: #DE3C3C;
+$color-dark-red: #9d1915;
+$color-hover-red: #D83C38;
+$color-active-red: #B7312D;
+
+$font-light-gray: #cbcccc;
+$font-base-color: $color-black;
+$background-base-color: $color-default-white;
+$color-placeholder: #d8d8d8;

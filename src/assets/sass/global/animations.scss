@@ -1,0 +1,42 @@
+@keyframes move-gradient {
+  from {
+    background-position-x: left;
+  }
+
+  to {
+    background-position-x: right;
+  }
+}
+
+.slide-left-enter-active {
+  transition: all 0.6s;
+}
+
+.slide-left-leave-active {
+  transition: all 0.6s;
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+  transform: translateX(100%);
+}
+
+// .fade-enter,
+// .fade-leave-to {
+//   opacity: 0;
+// }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-property: opacity;
+  transition-duration: 0.3s;
+}
+
+.fade-enter-active {
+  transition-delay: 0.3s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}

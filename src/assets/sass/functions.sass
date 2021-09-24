@@ -1,0 +1,11 @@
+@function rem($size, $content: 16)
+  @return ($size / $content) * 1rem
+@function em($size, $content: 16)
+  @return ($size / $content) * 1em
+// return the native css variable from the global sass map
+// @function var($variable)
+  @return map-get($variables, $variable)
+// @mixin selection($background, $color)
+  &::selection
+    background: $background
+    color: $color

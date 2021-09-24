@@ -1,0 +1,90 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-light-brown;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal__body {
+  overflow-x: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.modal__close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+
+  .icon {
+    stroke: $color-black;
+    opacity: 0.5;
+    transition: $transition-settings;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: $mobiles-max) {
+    top: 20px;
+    right: 10px;
+  }
+
+}
+
+.modal__wrapper {
+  background: $color-white;
+  width: 100%;
+  max-width: $container;
+  margin: auto;
+}
+
+.modal__content {
+  padding: 60px 70px;
+}
+
+.message {
+  display: none;
+
+  &--shown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $color-red;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    z-index: 1000;
+  }
+}
+
+.message__text {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.success__title {
+  margin-bottom: 30px;
+}
+
+.success__tlink {
+  text-decoration: underline;
+}
