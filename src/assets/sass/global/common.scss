@@ -313,6 +313,11 @@ table {
     max-width: none;
     padding-right: 42px;
     padding-left: 42px;
+
+    @media (max-width: 1499px) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
   }
 
   &--relative {

@@ -3,7 +3,7 @@
   min-height: 295px;
   // border-top: 4px solid #ffffff;
   // border-bottom: 4px solid #ffffff;
-  background-image: url('~@/assets/img/frame.png');
+  // background-image: url('~@/assets/img/frame.png');
 
   background-repeat: no-repeat;
   background-size: auto;
@@ -12,15 +12,9 @@
 
   margin-top: 20px;
 
-  // &:before {
-  //   position: absolute;
-  //   content: "";
-  //   left: 0;
-  //   top: 0;
-  //   width: 24px;
-  //   height: 295px;
-  //   background-image: url('~@/assets/img/mint-frame-before.svg');
-  // }
+  @media (max-width: $mobiles-max) {
+    background-image: url('~@/assets/img/frame-mobile.png');
+  }
 }
 
 .minting__texts {
@@ -34,10 +28,79 @@
 
 .minting__inner {
   margin: 0 auto;
-  display: block;
-  width: 552px;
+  // display: block;
+  // width: 552px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 60px 0;
   position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    /* top: 0; */
+    width: 94%;
+    height: 3px;
+    background-color: $color-light-gray;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    top: 12px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    /* top: 0; */
+    width: 94%;
+    height: 3px;
+    background-color: $color-light-gray;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: $tablets-max) {
+    width: 100%;
+  }
+}
+
+.minting__body {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    background-image: url('~@/assets/img/mint-frame-before.svg');
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 294px;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    background-image: url('~@/assets/img/mint-frame-after.svg');
+    right: 0;
+    top: 0;
+    width: 25px;
+    height: 294px;
+  }
 }
 
 .minting__divider {
@@ -52,6 +115,7 @@
   background-image: url('~@/assets/img/minting-divider.svg');
   width: 100%;
   margin: 90px auto 0;
+  background-size: contain;
 }
 
 .minting__counter {
@@ -76,4 +140,9 @@
   align-items: center;
   margin-top: 14px;
   justify-content: space-between;
+
+  @media (max-width: $tablets-max) {
+    flex-direction: column;
+    margin-top: 0;
+  }
 }

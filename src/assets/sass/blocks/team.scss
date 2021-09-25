@@ -1,0 +1,86 @@
+.team__inner {
+  position: relative;
+
+  margin-top: -155px;
+
+  padding: 143px 0;
+
+  @media (max-width: 1199px) {
+    margin-top: 0;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 84px;
+    top: 0;
+    left: 0;
+    background-image: url('~@/assets/img/team-ornament.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 84px;
+    bottom: 20px;
+    left: 0;
+    transform: rotate(180deg);
+    background-image: url('~@/assets/img/team-ornament.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.team__image {
+  width: 100%;
+  height: 662px;
+
+  margin-top: 50px;
+
+  margin-bottom: 45px;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.team__member {
+  display: flex;
+  align-items: baseline;
+
+  margin-bottom: 23px;
+
+  p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+
+    width: 30%;
+    margin-right: 4%;
+    margin-bottom: 0;
+  }
+
+  span {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+
+    width: 66%;
+  }
+}
+
+.team__additional-text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 22px;
+}

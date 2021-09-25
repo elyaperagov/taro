@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container container--wide">
-      <div class="header__content">
+      <div v-if="!$root.isTablet" class="header__content">
         <div class="header__socials">
           <app-link href="https://etheremura.io/" class="header__logo" target="_blank">
             <img src="@/assets/img/logo.svg" alt="logo" />
@@ -22,21 +22,78 @@
         </div>
         <div class="header__sections">
           <div class="header__content-links">
-            <app-link
+            <a
               v-for="(link, i) in content_links"
               :key="i"
               class="header__content-link"
               :href="link.link"
-              target="_blank"
+              @click.prevent="goTo(link.link)"
             >
               <span> {{ link.text }}</span>
-            </app-link>
+            </a>
           </div>
           <button class="button button--connect" @click="connectMetaMask">
             {{ connectButtonText }}
           </button>
         </div>
       </div>
+
+      <app-link
+        v-if="$root.isTablet"
+        href="https://etheremura.io/"
+        class="header__logo"
+        target="_blank"
+      >
+        <img src="@/assets/img/logo.svg" alt="logo" />
+      </app-link>
+
+      <button
+        v-if="$root.isTablet"
+        class="button button--toggle"
+        :class="{ close: !menuOpened }"
+        @click="menuToggle()"
+      >
+        <img
+          class="header__burger"
+          :class="{ close: menuOpened }"
+          src="@/assets/img/burger.png"
+          alt="burger menu"
+        />
+      </button>
+
+      <transition name="slide-left">
+        <div v-if="$root.isTablet && menuOpened" class="header__content">
+          <div class="header__social-links">
+            <app-link
+              v-for="(link, i) in social_links"
+              :key="i"
+              class="header__social-link"
+              :href="link.href"
+              target="_blank"
+            >
+              <svg width="40" height="40" aria-hidden="true">
+                <use :xlink:href="link.icon"></use>
+              </svg>
+            </app-link>
+          </div>
+          <div class="header__sections">
+            <div class="header__content-links">
+              <app-link
+                v-for="(link, i) in content_links"
+                :key="i"
+                class="header__content-link"
+                :href="link.link"
+                target="_blank"
+              >
+                <span> {{ link.text }}</span>
+              </app-link>
+            </div>
+            <button class="button button--connect" @click="connectMetaMask">
+              {{ connectButtonText }}
+            </button>
+          </div>
+        </div>
+      </transition>
     </div>
   </header>
 </template>
@@ -54,6 +111,7 @@ export default {
   },
   data() {
     return {
+      menuOpened: false,
       social_links: [
         {
           href: 'https://opensea.io/collection/oraclenft ',
@@ -70,27 +128,27 @@ export default {
       ],
       content_links: [
         {
-          link: '#',
+          link: '#about',
           text: 'About'
         },
         {
-          link: '#',
+          link: '#rarity',
           text: 'Rarity'
         },
         {
-          link: '#',
+          link: '#roadmap',
           text: 'Roadmap'
         },
         {
-          link: '#',
+          link: '#team',
           text: 'Team'
         },
         {
-          link: '#',
+          link: '#faq',
           text: 'Faq'
         },
         {
-          link: '#',
+          link: '#mycards',
           text: 'My Cards'
         }
       ]
@@ -101,6 +159,14 @@ export default {
     connectButtonText() {
       return this.isWalletConnected ? 'Connected' : 'Connect Wallet'
     }
+  },
+  mounted() {
+    window.addEventListener('resize', this.menuClose)
+    window.addEventListener('scroll', this.menuClose)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.menuClose)
+    window.removeEventListener('scroll', this.menuClose)
   },
   methods: {
     connectMetaMask() {
@@ -113,6 +179,19 @@ export default {
       } else {
         this.$emit('connectMetaMask')
       }
+    },
+    async goTo(link) {
+      if (!this.$scrollTo(link)) {
+        setTimeout(() => {
+          this.$scrollTo(link)
+        }, 500)
+      }
+    },
+    menuToggle() {
+      this.menuOpened = !this.menuOpened
+    },
+    menuClose() {
+      this.menuOpened = false
     }
   }
 }

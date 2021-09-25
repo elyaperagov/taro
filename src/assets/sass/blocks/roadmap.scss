@@ -1,0 +1,170 @@
+.roadmap {
+  // min-height: 1170px;
+  margin: 100px 0 0;
+}
+
+.roadmap__inner {
+  position: relative;
+
+  @media (max-width: 949px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.roadmap__point {
+  h3 {
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    background-image: url('~@/assets/img/roadmap-star.svg');
+    width: 74px;
+    height: 86px;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    background-color: $color-light-gray;
+  }
+  &--first {
+    transform: translate(35%, 124px);
+    width: 570px;
+
+    &:before {
+      top: -20px;
+      left: -200px;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &--second {
+    width: 505px;
+    transform: translate(62%, 430px);
+
+    &:before {
+      top: -105px;
+      left: -8px;
+    }
+
+    &:after {
+      top: -268px;
+      left: -66%;
+      width: 413.62px;
+      height: 4px;
+      border-radius: 5px;
+      transform: rotate(53.5deg);
+    }
+  }
+
+  &--third {
+    width: 247px;
+    transform: translate(371%, -50px);
+
+    &:before {
+      top: -14px;
+      left: -82px;
+    }
+
+    &:after {
+      top: 100px;
+      left: -213%;
+      width: 437.62px;
+      height: 4px;
+      border-radius: 5px;
+      transform: rotate(-14deg);
+    }
+  }
+
+  &--forth {
+    width: 370px;
+    transform: translate(214%, -27px);
+
+    &:before {
+      top: -86px;
+      left: -20px;
+    }
+
+    &:after {
+      top: -360px;
+      left: -217px;
+      width: 528px;
+      height: 4px;
+      border-radius: 5px;
+      transform: rotate(96deg);
+    }
+  }
+
+  &--fifth {
+    width: 617px;
+    transform: translate(7%, -280px);
+    &:before {
+      top: -103px;
+      left: 14px;
+    }
+
+    &:after {
+      top: -86px;
+      left: 14%;
+      width: 639px;
+      height: 4px;
+      border-radius: 5px;
+      transform: rotate(-3deg);
+    }
+  }
+
+  @media (max-width: 1199px) {
+    display: flex;
+    flex-direction: column;
+
+    transform: translate(0, 0);
+    width: 100%;
+
+    &:before {
+      top: 0px;
+      left: 20px;
+    }
+
+    &:after {
+      top: 20px;
+      left: 20%;
+      width: 639px;
+      height: 4px;
+      border-radius: 5px;
+      transform: rotate(90deg);
+    }
+  }
+
+  &--sold {
+    &:before {
+      background-image: url('~@/assets/img/roadmap-star-sold.svg');
+    }
+
+    &:after {
+      background-color: $color-gold;
+    }
+
+    h3 {
+      color: $color-gold;
+      text-decoration: line-through;
+    }
+
+    p {
+      color: $color-gold;
+    }
+  }
+}

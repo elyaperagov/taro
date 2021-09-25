@@ -2,13 +2,20 @@
   display: flex;
   min-height: 790px;
 
+  @media (max-width: $tablets-max) {
+    flex-direction: column;
+  }
+
   &--cards {
+    min-height: 875px;
     .info__pictures {
       order: 2;
+      margin-right: 0;
     }
 
     .info__texts-wrapper {
       order: 1;
+      margin-right: 2%;
     }
   }
 }
@@ -19,17 +26,41 @@
   flex-wrap: wrap;
   margin-right: 2%;
   justify-content: space-between;
+  transition: $transition-settings;
+
+  @media (max-width: $tablets-max) {
+    width: 80%;
+    margin-right: 0;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .info__picture {
-  min-height: 300px;
-  max-height: 380px;
+  // min-height: 300px;
+  // max-height: 380px;
+  height: 380px;
   width: 48%;
   max-width: 270px;
 
-  margin-bottom: 30px;
+  border: 4px solid #cecece;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
-  &:nth-of-type(3n) {
+  margin-bottom: auto;
+  margin-top: auto;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:nth-of-type(2) {
+    margin-top: 0;
+  }
+
+  &:nth-of-type(3) {
     margin-bottom: 0;
   }
 
@@ -48,6 +79,15 @@
   width: 49%;
   position: relative;
   display: flex;
+
+  @media (max-width: $tablets-max) {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 
   &:before {
     position: absolute;
@@ -90,12 +130,48 @@
     margin-bottom: 24px;
   }
 
-  span {
+  b {
     font-family: Verdana;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 30px;
     color: $color-gold;
+  }
+}
+
+.info__text {
+  margin-bottom: 23px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.info__list {
+  li {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      content: '';
+      background-image: url('~@/assets/img/star.svg');
+      width: 18px;
+      height: 18px;
+      left: 0;
+      top: 8px;
+    }
+
+    span {
+      font-family: Verdana;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0em;
+      text-align: left;
+
+      margin-left: 36px;
+    }
   }
 }

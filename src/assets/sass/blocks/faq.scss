@@ -1,0 +1,51 @@
+.faq {
+  margin-top: 35px;
+}
+
+.faq__text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+
+  margin-bottom: 21px;
+}
+
+.faq__texts {
+  margin-top: 103px;
+}
+
+.faq__item {
+  display: flex;
+  align-items: baseline;
+
+  padding-bottom: 26px;
+
+  border-bottom: 1px solid #272727;
+
+  margin-bottom: 21px;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+
+    width: 30%;
+    margin-right: 4%;
+    margin-bottom: 0;
+  }
+
+  span {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+
+    width: 66%;
+  }
+}

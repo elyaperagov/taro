@@ -12,6 +12,10 @@
   display: block;
   margin: 0 auto;
   width: 100%;
+
+  @media (max-width: $tablets-max) {
+    min-height: 500px;
+  }
 }
 
 .banner__mint {
@@ -23,7 +27,23 @@
   left: 22.5%;
   transition: $transition-settings;
   opacity: 0;
-  @include adb(top, 690, 600);
+  @include adb(top, 690, 580);
+
+  @media (max-width: 949px) {
+    @include adb(top, 390, 270);
+    left: 22.5%;
+    height: 18vh;
+  }
+
+  @media (max-width: $tablets-max) {
+    @include adb(top, 390, 270);
+    left: 24.5%;
+    height: 18vh;
+  }
+
+  @media (max-width: $mobiles-max) {
+    left: 22.5%;
+  }
 
   &:hover {
     background-repeat: no-repeat;
@@ -43,6 +63,12 @@
   transition: $transition-settings;
   opacity: 0;
 
+  @include adb(top, 690, 600);
+
+  @media (max-width: $tablets-max) {
+    @include adb(top, 390, 300);
+  }
+
   &:hover {
     background-repeat: no-repeat;
     background-image: url('~@/assets/img/about.png');
@@ -61,6 +87,12 @@
   transition: $transition-settings;
   opacity: 0;
 
+  @include adb(top, 690, 600);
+
+  @media (max-width: $tablets-max) {
+    @include adb(top, 390, 300);
+  }
+
   &:hover {
     background-repeat: no-repeat;
     background-image: url('~@/assets/img/roadmap.png');
@@ -78,6 +110,12 @@
   right: -2%;
   transition: $transition-settings;
   opacity: 0;
+
+  @include adb(top, 690, 600);
+
+  @media (max-width: $tablets-max) {
+    @include adb(top, 390, 300);
+  }
 
   &:hover {
     background-repeat: no-repeat;

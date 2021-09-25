@@ -5,8 +5,11 @@
     <app-header :is-wallet-connected="isWalletConnected" @connectMetaMask="connectMetaMask" />
     <Banner />
     <Minting />
-    <Lottery />
+    <About />
     <Cards />
+    <Roadmap />
+    <Team />
+    <Faq />
     <!-- <layout :current-wallet="currentWallet" /> -->
   </div>
 </template>
@@ -17,8 +20,12 @@ import Sprite from '@/components/Sprite'
 import AppHeader from '@/components/AppHeader'
 import Banner from '@/components/Banner'
 import Minting from '@/components/Minting'
-import Lottery from '@/components/Lottery'
+import About from '@/components/About'
 import Cards from '@/components/Cards'
+import Roadmap from '@/components/Roadmap'
+import Team from '@/components/Team'
+import Faq from '@/components/Faq'
+
 const requestMethods = {
   getAccountsList: 'eth_accounts',
   callWalletConnection: 'eth_requestAccounts'
@@ -33,8 +40,11 @@ export default {
     Sprite,
     Banner,
     Minting,
-    Lottery,
-    Cards
+    About,
+    Cards,
+    Roadmap,
+    Team,
+    Faq
     // Layout
   },
   data: () => ({

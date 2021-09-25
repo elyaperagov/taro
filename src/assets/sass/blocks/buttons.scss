@@ -24,6 +24,10 @@
 
     transition: $transition-settings;
 
+    @media (max-width: 1499px) {
+      width: 195px;
+    }
+
     @media (max-width: $mobiles-max) {
       font-size: 18px;
       font-style: normal;
@@ -39,6 +43,60 @@
 
     &:active {
       background: $color-active-red;
+    }
+  }
+
+  &--toggle {
+    width: 33px;
+    position: absolute;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-settings;
+    right: 20px;
+    top: 35px;
+    padding: 0;
+    z-index: 3;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 33px;
+      background-color: $color-default-white;
+      transform: rotate(45deg);
+      transition: $transition-settings;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 33px;
+      background-color: $color-default-white;
+      transform: rotate(-45deg);
+      transition: $transition-settings;
+    }
+
+    &.close {
+      &:before {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &:after {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+
+    @media (min-width: $tablets-max) {
+      display: none;
+    }
+
+    @media (max-width: $tablets-max) {
+      display: flex;
     }
   }
 
@@ -58,6 +116,10 @@
     letter-spacing: 0em;
     text-align: center;
     width: 346px;
+
+    @media (max-width: $tablets-max) {
+      padding: 0;
+    }
   }
 
   // .icon {

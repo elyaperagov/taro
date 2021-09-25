@@ -1,7 +1,7 @@
 <template>
-  <section class="lottery">
+  <section id="about" class="about">
     <div class="container">
-      <div class="info info--lottery">
+      <div class="info info--about">
         <div class="info__pictures">
           <div v-for="(picture, i) in pictures" :key="i" class="info__picture">
             <img :src="picture.src" :alt="picture.alt" />
@@ -14,19 +14,20 @@
           </div>
         </div>
       </div>
+      <div class="about__divider"></div>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Lottery',
+  name: 'About',
   data() {
     return {
       title: 'Original Readings And Crypto Lottery ERC-721 NFTs!!',
       texts: [
         {
-          text: '<span>O.R.A.C.L.E.</span> are the first NFT Predictions that appeared on Ethereum Blockchain.'
+          text: '<b>O.R.A.C.L.E.</b> are the first NFT Predictions that appeared on Ethereum Blockchain.'
         },
         {
           text: "You're welcome to try your luck here on finding 6666 answers about your future. Be aware: some predictions might come true and some hunt you forever. "
