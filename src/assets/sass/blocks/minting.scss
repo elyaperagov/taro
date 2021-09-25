@@ -36,6 +36,10 @@
   padding: 60px 0;
   position: relative;
 
+  @media (max-width: $mobiles-max) {
+    padding: 30px 0;
+  }
+
   &:before {
     position: absolute;
     content: '';
@@ -49,6 +53,10 @@
     top: 12px;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @media (max-width: $mobiles-max) {
+      display: none;
+    }
 
     // top: 50%;
     // left: 50%;
@@ -72,6 +80,10 @@
     // top: 50%;
     // left: 50%;
     // transform: translate(-50%, -50%);
+
+    @media (max-width: $mobiles-max) {
+      display: none;
+    }
   }
 
   @media (max-width: $tablets-max) {
@@ -90,6 +102,10 @@
     top: 0;
     width: 25px;
     height: 294px;
+
+    @media (max-width: $mobiles-max) {
+      display: none;
+    }
   }
 
   &:after {
@@ -100,6 +116,10 @@
     top: 0;
     width: 25px;
     height: 294px;
+
+    @media (max-width: $mobiles-max) {
+      display: none;
+    }
   }
 }
 
@@ -132,6 +152,13 @@
     letter-spacing: 0em;
     text-align: center;
     margin: 0;
+
+    @media (max-width: $mobiles-max) {
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 48px;
+    }
   }
 }
 
@@ -144,5 +171,27 @@
   @media (max-width: $tablets-max) {
     flex-direction: column;
     margin-top: 0;
+  }
+}
+
+.minting__current {
+  @media (max-width: $mobiles-max) {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}
+
+.minting__total {
+  @media (max-width: $mobiles-max) {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
   }
 }
