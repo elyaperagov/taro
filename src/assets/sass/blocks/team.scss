@@ -1,7 +1,43 @@
+.team {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 150px;
+    width: 295px;
+    height: 415px;
+    z-index: 0;
+    background-image: url('~@/assets/img/pseudo-5.svg');
+    background-repeat: no-repeat;
+
+    @media (max-width: 1199px) {
+      display: none;
+    }
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 350px;
+    width: 360px;
+    height: 444px;
+    z-index: 0;
+    background-image: url('~@/assets/img/pseudo-6.svg');
+    background-repeat: no-repeat;
+
+    @media (max-width: 1199px) {
+      display: none;
+    }
+  }
+}
+
 .team__inner {
   position: relative;
 
-  margin-top: -155px;
+  margin-top: -220px;
 
   padding: 143px 0;
 

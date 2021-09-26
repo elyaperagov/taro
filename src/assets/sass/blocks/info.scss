@@ -61,8 +61,6 @@
 }
 
 .info__picture {
-  // min-height: 300px;
-  // max-height: 380px;
   height: 380px;
   width: 48%;
   max-width: 270px;
@@ -116,15 +114,17 @@
     margin-right: 0;
     padding: 42px 0;
     margin-top: 40px;
+
   }
 
   @media (max-width: $mobiles-max) {
     padding: 42px 0;
-    margin-top: 12px;
+    margin-top: 40px;
   }
 
   @media (max-width: 600px) {
     width: 100%;
+    margin-top: 12px;
   }
 
   &:before {

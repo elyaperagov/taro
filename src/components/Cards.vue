@@ -90,7 +90,7 @@ export default {
       ],
       pictures: [
         {
-          src: require('@/assets/img/about.png'),
+          src: require('@/assets/img/card-5.jpg'),
           alt: 'card'
         },
         {

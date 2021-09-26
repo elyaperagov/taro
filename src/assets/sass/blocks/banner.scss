@@ -32,12 +32,16 @@
   position: absolute;
   content: '';
   width: 14vw;
-  height: 34vh;
-  // top: 690px;
+  height: 35vh;
   left: 22.5%;
   transition: $transition-settings;
   opacity: 0;
   @include adb(top, 690, 580);
+  min-height: 295px;
+
+  @media (min-width: 1920px) {
+    width: 270px;
+  }
 
   @media (max-width: 949px) {
     @include adb(top, 390, 270);
@@ -74,13 +78,33 @@
   height: 35vh;
   top: 640px;
   left: 37.5%;
+  min-height: 330px;
   transition: $transition-settings;
   opacity: 0;
 
-  @include adb(top, 690, 600);
+  @media (min-width: 1920px) {
+    width: 340px;
+  }
+
+  @include adb(top, 630, 560);
 
   @media (max-width: $tablets-max) {
-    @include adb(top, 390, 300);
+    @include adb(top, 390, 240);
+    height: 17vh;
+  }
+
+  @media (max-width: $mobiles-max) {
+    @include adb(top, 390, 245);
+  }
+
+  @media (max-width: 600px) {
+    @include adb(top, 390, 255);
+
+    height: 13vh;
+  }
+
+  @media (max-width: 400px) {
+    @include adb(top, 390, 260);
   }
 
   &:hover {
@@ -96,15 +120,54 @@
   content: '';
   width: 31vw;
   height: 53vh;
-  top: 620px;
   left: 50%;
   transition: $transition-settings;
   opacity: 0;
+  @include adb(top, 600, 600);
+  min-height: 494px;
 
-  @include adb(top, 690, 600);
+  @media (min-width: 1920px) {
+    width: 587px;
+  }
+
+  @media (max-width: 1199px) {
+    @include adb(top, 600, 570);
+  }
 
   @media (max-width: $tablets-max) {
-    @include adb(top, 390, 300);
+    @include adb(top, 600, 50);
+    height: 17vh;
+    width: 27vw;
+    min-width: 270px;
+    min-height: 300px;
+  }
+
+  @media (max-width: 999px) {
+    top: 280px;
+    height: 17vh;
+    width: 27vw;
+    min-width: 270px;
+    min-height: 270px;
+  }
+
+  @media (max-width: 899px) {
+    top: 280px;
+    height: 13vh;
+    width: 31vw;
+    min-width: 200px;
+    min-height: 220px;
+  }
+
+  @media (max-width: 699px) {
+    top: 270px;
+    min-width: 150px;
+    min-height: 180px;
+  }
+
+  @media (max-width: 499px) {
+    top: 270px;
+    min-width: 100px;
+    min-height: 120px;
   }
 
   &:hover {
@@ -119,16 +182,60 @@
   position: absolute;
   content: '';
   width: 15vw;
-  height: 29vh;
-  top: 795px;
   right: -2%;
   transition: $transition-settings;
   opacity: 0;
+  min-height: 255px;
+  height: 16vh;
+  right: -10px;
+  opacity: 0;
 
-  @include adb(top, 690, 600);
+  @include adb(top, 800, 600);
+
+
+  @media (min-width: 1920px) {
+    width: 340px;
+    right: -5%;
+  }
+
 
   @media (max-width: $tablets-max) {
+    @include adb(top, 390, 340);
+    width: 12vh;
+    right: 5%;
+    min-width: 145px;
+  }
+
+  @media (max-width: 999px) {
+    right: 4%;
+    min-width: 120px;
+  }
+
+  @media (max-width: 949px) {
+    right: 1%;
+  }
+
+  @media (max-width: 899px) {
+    right: 0.5%;
+  }
+
+  @media (max-width: $mobiles-max) {
+    @include adb(top, 390, 320);
+    width: 8vh;
+    min-height: 200px;
+    right: 0.25%;
+  }
+
+  @media (max-width: 600px) {
     @include adb(top, 390, 300);
+    width: 6vh;
+    min-height: 185px;
+    height: 13vh;
+    min-width: 80px;
+  }
+
+  @media (max-width: 400px) {
+    min-width: 50px;
   }
 
   &:hover {

@@ -1,5 +1,38 @@
 .about {
   margin: 100px 0;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: '';
+    right: 0px;
+    top: -43px;
+    width: 360px;
+    height: 415px;
+    z-index: 0;
+    background-image: url('~@/assets/img/pseudo-1.svg');
+    background-repeat: no-repeat;
+
+    @media (max-width: $tablets-max) {
+      display: none;
+    }
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    bottom: 100px;
+    width: 360px;
+    height: 360px;
+    z-index: 0;
+    background-image: url('~@/assets/img/pseudo-2.svg');
+    background-repeat: no-repeat;
+
+    @media (max-width: $tablets-max) {
+      display: none;
+    }
+  }
 
   @media (max-width: $tablets-max) {
     margin: 20px 0;
@@ -9,7 +42,6 @@
     margin: 40px 0;
   }
 }
-
 
 .about__divider {
   content: '';
