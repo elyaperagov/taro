@@ -5,30 +5,33 @@ export default {
       return JSON.parse(JSON.stringify(object))
     }
     Vue.prototype.$scrollTo = function (id = false, offset = 0, refs = false, ref = false) {
-      console.log('sdf')
-      let target = false
-      if (id) {
-        target = document.querySelector(id)
-        if (!target) {
+      try {
+        let target = false
+        if (id) {
+          target = document.querySelector(id)
+          if (!target) {
+            return false
+          }
+        }
+        if (refs && ref) {
+          target = refs[ref]
           return false
         }
-      }
-      if (refs && ref) {
-        target = refs[ref]
+        let top = target.offsetTop
+        if (!top && refs && ref) {
+          top = refs[ref][0].offsetTop
+        }
+        if (!top) {
+          return false
+        }
+        window.scrollTo({
+          top: top + offset,
+          behavior: 'smooth'
+        })
+        return true
+      } catch (error) {
         return false
       }
-      let top = target.offsetTop
-      if (!top && refs && ref) {
-        top = refs[ref][0].offsetTop
-      }
-      if (!top) {
-        return false
-      }
-      window.scrollTo({
-        top: top + offset,
-        behavior: 'smooth'
-      })
-      return true
     }
     Vue.prototype.$scrollToTop = function () {
       window.scrollTo({

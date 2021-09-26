@@ -1,16 +1,17 @@
 <template>
-  <div class="counter">
-    <div class="counter__info">
-      <common-text>Left: </common-text>
-      <common-text> {{ computedLeftCount }} / {{ computedTotalCount }} </common-text>
+  <div class="minting__inner">
+    <div class="minting__texts">
+      <h2 class="minting__title">Predictions Minted:</h2>
+
+      <p class="minting__current">{{ '&nbsp;' + computedLeftCount }} /</p>
+      <p class="minting__total">{{ '&nbsp;' + computedTotalCount }}</p>
     </div>
-    <div class="counter__actions">
-      <div class="counter__actions-left">
-        <plus-minus-input :current-value.sync="currentCount" :max-value="20" :min-value="2" />
-      </div>
-      <div class="counter__actions-right">
-        <button @click="handleMint">Mint Ξ</button>
-      </div>
+
+    <div class="minting__buttons">
+      <plus-minus-input :current-value.sync="currentCount" :max-value="20" :min-value="1" />
+      <button class="button button--minting" @click="handleMint">
+        Mint for {{ currentPrice }} Ξ
+      </button>
     </div>
   </div>
 </template>
@@ -18,8 +19,7 @@
 <script>
 import Web3 from 'web3'
 import { contractAddress, abi } from '@/utils/oracle.js'
-import CommonText from '@/components/dump/CommonText'
-import PlusMinusInput from '@/components/dump/PlusMinusInput'
+import PlusMinusInput from '@/components/PlusMinusInput'
 
 const delimiter = 1e18
 const unknown = 'xxxxx'
@@ -29,7 +29,7 @@ const web3 = new Web3(
 )
 export default {
   name: 'Counter',
-  components: { PlusMinusInput, CommonText },
+  components: { PlusMinusInput },
   props: {
     currentWallet: {
       type: String,
@@ -41,15 +41,14 @@ export default {
       leftCount: null,
       currentCount: 2,
       oracleContract: null,
-      etheremuraCount: null,
       totalCount: null,
       isPaused: null,
-      price: 0.02 * delimiter
+      price: null
     }
   },
   computed: {
     currentPrice() {
-      return this.currentCount * (this.price / delimiter)
+      return (this.currentCount * (this.price / delimiter)).toFixed(2)
     },
     computedLeftCount() {
       return this.leftCount !== null ? this.totalCount - this.leftCount : unknown
@@ -72,14 +71,16 @@ export default {
       const response = await Promise.all([
         oracleContract.methods.MAX_NFTS().call(),
         oracleContract.methods.totalSupply().call(),
-        oracleContract.methods.paused().call()
+        oracleContract.methods.paused().call(),
+        oracleContract.methods.getPrice(1).call()
       ])
-      const [totalCount, leftCount, isPaused] = response
+      const [totalCount, leftCount, isPaused, price] = response
       this.totalCount = totalCount
       this.leftCount = leftCount
       this.isPaused = isPaused
+      this.price = price
     },
-    async isReadyToMint(count) {
+    async isReadyToMint() {
       if (!this.currentWallet) {
         this.$notify({
           group: 'app-notifications',
@@ -110,23 +111,20 @@ export default {
       return Promise.resolve(true)
     },
     async handleMint() {
-      const count = this.currentCount
-
-      const ready = await this.isReadyToMint(count)
+      const ready = await this.isReadyToMint()
 
       if (ready) {
-        this.mintKatana(count)
+        this.mint()
       }
     },
-    mintKatana(count) {
-      const { oracleContract, currentWallet, web3Handler } = this
-      console.log('currentWallet: ' + currentWallet)
+    mint(count) {
+      const { oracleContract, currentWallet, price, currentCount, web3Handler } = this
 
       oracleContract.methods
-        .mintKatana(currentWallet, count)
+        .mint(currentWallet, currentCount)
         .send({
           from: currentWallet,
-          value: 0
+          value: currentCount * price
         })
         .on('transactionHash', hash => {
           this.$notify({
@@ -150,57 +148,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="sass">
-.counter
-  @extend %common-container
-  margin: 0 auto
-  &__info
-    display: flex
-    align-items: center
-    justify-content: center
-    white-space: break-spaces
-    flex-wrap: wrap
-    &-unclaimed
-      width: 100%
-      margin-top: 0.6rem
-  &__actions
-    margin-top: rem(20)
-    display: flex
-    flex-wrap: wrap
-    align-items: center
-    justify-content: center
-    gap: rem(30)
-    &-right
-      button
-        @extend %common-btn
-    &-center
-      width: 100%
-      display: flex
-      align-items: center
-      justify-content: center
-      button
-        font-family: "Lora"
-        outline: none
-        cursor: pointer
-        color: #fff
-        background-color: #FF0000
-        border: 3px solid #000
-        border-radius: 3px
-        padding: 0 1rem
-        min-width: 11.5rem
-        min-height: 2.9375rem
-        font-style: normal
-        font-weight: normal
-        font-size: 1.125rem
-        line-height: 100%
-  .ml-2
-    margin-left: 2rem
-  .mt-2
-    margin-top: 2rem
-  .bold
-    border: 1px solid
-    padding: 0.5rem 1.3rem
-    margin: 0.8rem 0
-    display: inline-block
-</style>

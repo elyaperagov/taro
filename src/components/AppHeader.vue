@@ -31,6 +31,14 @@
             >
               <span> {{ link.text }}</span>
             </a>
+            <a
+              v-if="isWalletConnected"
+              class="header__content-link"
+              :href="linkCards.link"
+              target="_blank"
+            >
+              <span> {{ linkCards.text }}</span>
+            </a>
           </div>
           <button class="button button--connect" @click="connectMetaMask">
             {{ connectButtonText }}
@@ -147,15 +155,14 @@ export default {
         {
           link: '#faq',
           text: 'Faq'
-        },
-        {
-          link: '#mycards',
-          text: 'My Cards'
         }
-      ]
+      ],
+      linkCards: {
+        link: 'https://opensea.io/account/oracle',
+        text: 'My Cards'
+      }
     }
   },
-
   computed: {
     connectButtonText() {
       return this.isWalletConnected ? 'Connected' : 'Connect Wallet'
@@ -171,15 +178,7 @@ export default {
   },
   methods: {
     connectMetaMask() {
-      if (this.isWalletConnected) {
-        this.$notify({
-          group: 'app-notifications',
-          type: 'success',
-          text: 'Metamask is already connected'
-        })
-      } else {
-        this.$emit('connectMetaMask')
-      }
+      this.$emit('connectMetaMask')
     },
     async goTo(link) {
       if (!this.$scrollTo(link)) {

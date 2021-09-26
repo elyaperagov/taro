@@ -26,15 +26,15 @@ export default {
   },
   data() {
     return {
-      isMeteMaskInstalled: false,
+      isMetaMaskInstalled: false,
       isWalletConnected: false,
       currentWallet: null
     }
   },
   mounted() {
     const { ethereum } = window
-    this.isMeteMaskInstalled = !!ethereum?.isMetaMask
-    if (this.isMeteMaskInstalled) {
+    this.isMetaMaskInstalled = !!ethereum?.isMetaMask
+    if (this.isMetaMaskInstalled) {
       ethereum.on('accountsChanged', accounts => {
         this.handleAccountsChange(accounts)
       })
@@ -46,15 +46,23 @@ export default {
       this.setWalletConnectionStatus(accounts)
     },
     connectMetaMask() {
-      if (this.isMeteMaskInstalled) {
-        this.ethereumRequest(requestMethods.callWalletConnection)
-      } else {
+      if (this.isWalletConnected) {
         this.$notify({
           group: 'app-notifications',
-          type: 'error',
-          title: 'MetaMask is not installed',
-          text: `<a href="https://metamask.io/download.html" target="_blank">Download here</a>`
+          type: 'success',
+          text: 'Metamask is already connected'
         })
+      } else {
+        if (this.isMetaMaskInstalled) {
+          this.ethereumRequest(requestMethods.callWalletConnection)
+        } else {
+          this.$notify({
+            group: 'app-notifications',
+            type: 'error',
+            title: 'MetaMask is not installed',
+            text: `<a href="https://metamask.io/download.html" target="_blank">Download here</a>`
+          })
+        }
       }
     },
     setWalletConnectionStatus(accounts) {
@@ -90,5 +98,5 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap')
 
 #__app
-  font-family: $main-font, sans-serif
+  font-family: Verdana, sans-serif
 </style>

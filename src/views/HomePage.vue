@@ -1,7 +1,7 @@
 <template>
   <main>
     <banner />
-    <minting />
+    <minting :current-wallet="currentWallet" />
     <about />
     <cards />
     <roadmap />

@@ -1,8 +1,16 @@
 <template>
-  <div class="plus-minus-input">
-    <button :disabled="isDecreaseDisabled" class="btn" @click="decrease">-</button>
-    <input v-model.number="computedValue" type="number" class="input" />
-    <button :disabled="isIncreaseDisabled" class="btn" @click="increase">+</button>
+  <div class="minting__counter">
+    <button class="button button--minting-counter" :disabled="isDecreaseDisabled" @click="decrease">
+      <svg width="42" height="18" aria-hidden="true">
+        <use xlink:href="#minus"></use>
+      </svg>
+    </button>
+    <p>{{ computedValue }}</p>
+    <button class="button button--minting-counter" :disabled="isIncreaseDisabled" @click="increase">
+      <svg width="39" height="38" aria-hidden="true">
+        <use xlink:href="#plus"></use>
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -57,35 +65,4 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.plus-minus-input
-  background-image: url("~@/assets/img/mint.svg")
-  background-repeat: no-repeat
-  background-position: center center
-  width: rem(176)
-  min-height: rem(56)
-  display: grid
-  grid-template-columns: rem(60) 1fr rem(60)
-  .btn
-    background: none
-    box-shadow: none
-    outline: none
-    margin: 0
-    border: none
-    cursor: pointer
-    font-size: rem(18)
-    font-weight: bold
-    display: flex
-    justify-content: center
-    align-items: center
-    line-height: 1
-    padding: 0
-  .input
-    font-family: $main-font
-    font-size: rem(16)
-    text-align: center
-    border: none
-    background: transparent
-    padding: 0 rem(10)
-    overflow: hidden
-    text-overflow: ellipsis
 </style>

@@ -1,7 +1,11 @@
 <template>
-  <div v-if="hours !== null" class="countdown">
-    Minting starts in <br />
-    {{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}
+  <div v-if="hours !== null" class="minting__inner">
+    <div class="minting__texts">
+      <h2 class="minting__title">
+        Minting starts in
+        {{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -10,7 +14,7 @@ export default {
   name: 'CountDown',
   data() {
     return {
-      endTime: new Date('2021-09-10T23:00:00.000+03:00').getTime(),
+      endTime: new Date('2021-09-28T00:00:00.000+03:00').getTime(),
       hours: null,
       minutes: null,
       seconds: null
@@ -27,7 +31,16 @@ export default {
     }
   },
   mounted() {
-    this.$emit('showCounter')
+    setInterval(() => {
+      const currentTime = new Date().getTime()
+      const distance = this.endTime - currentTime
+      this.hours = Math.floor((distance % (1000 * 60 * 60 * 48)) / (1000 * 60 * 60))
+      this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+      this.seconds = Math.floor((distance % (1000 * 60)) / 1000)
+      if (distance < 0) {
+        this.$emit('showCounter')
+      }
+    }, 1000)
   },
   methods: {
     formatNumber(number) {
@@ -36,9 +49,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="sass">
-.countdown
-  font-size: rem(60)
-  font-weight: bold
-</style>

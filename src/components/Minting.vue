@@ -2,34 +2,8 @@
   <section id="mint" class="minting">
     <div class="container container--relative">
       <div class="minting__body">
-        <div class="minting__inner">
-          <div class="minting__texts">
-            <h2 class="minting__title">{{ title }}</h2>
-
-            <p class="minting__current">{{ '&nbsp;' + currentNumber + '/' }}</p>
-            <p class="minting__total">{{ total }}</p>
-          </div>
-
-          <div class="minting__buttons">
-            <div class="minting__counter">
-              <button class="button button--minting-counter">
-                <svg width="42" height="18" aria-hidden="true">
-                  <use :xlink:href="counter.minus"></use>
-                </svg>
-              </button>
-              <p>{{ counter.currentNumber }}</p>
-              <button class="button button--minting-counter">
-                <svg width="39" height="38" aria-hidden="true">
-                  <use :xlink:href="counter.plus"></use>
-                </svg>
-              </button>
-            </div>
-            <button class="button button--minting">
-              {{ mintFor }}
-              {{ currentPrice + ' Ξ' }}
-            </button>
-          </div>
-        </div>
+        <counter v-if="isCounterShow" :current-wallet="currentWallet" />
+        <count-down v-else @showCounter="showCounter" />
       </div>
       <div class="minting__divider"></div>
     </div>
@@ -37,20 +11,26 @@
 </template>
 
 <script>
+import Counter from '@/components/Counter'
+import CountDown from '@/components/CountDown'
+
 export default {
   name: 'Minting',
+  components: { CountDown, Counter },
+  props: {
+    currentWallet: {
+      type: String,
+      default: null
+    }
+  },
   data() {
     return {
-      title: 'Predictions Minted:',
-      currentNumber: 3,
-      total: 6666,
-      mintFor: 'Mint for',
-      currentPrice: 0.12,
-      counter: {
-        plus: '#plus',
-        minus: '#minus',
-        currentNumber: 2
-      }
+      isCounterShow: false
+    }
+  },
+  methods: {
+    showCounter() {
+      this.isCounterShow = true
     }
   }
 }

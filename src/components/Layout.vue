@@ -44,38 +44,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="sass">
-.layout
-  background-image: url("~@/assets/img/bg.png")
-  background-position: center rem(90)
-  background-repeat: no-repeat
-  .scene
-    @extend %common-container
-    margin: 0 auto
-    padding: rem(80) 0 rem(52)
-  .katana
-    max-width: 90vw
-  .title
-    margin: 0 auto 1em auto
-    font-weight: 600 !important
-    font-style: normal
-    font-weight: normal
-    font-size: rem(18)
-    line-height: 150%
-  .sep
-    background-image: url("~@/assets/img/sep.svg")
-    background-position: center center
-    background-repeat: no-repeat
-    width: 280px
-    height: 60px
-    margin: 25px auto
-  .danger
-    font-style: normal
-    font-weight: normal
-    font-size: rem(18)
-    line-height: 150%
-    text-align: center
-    color: #FF0000
-    font-weight: 600
-</style>

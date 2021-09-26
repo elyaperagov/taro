@@ -9,7 +9,6 @@ Vue.config.productionTip = false
 Vue.use(Helpers)
 Vue.use(Notifications)
 Vue.use(VueMeta, {
-  // optional pluginOptions
   refreshOnceOnNavigation: true
 })
 

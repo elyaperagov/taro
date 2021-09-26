@@ -21,17 +21,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="sass">
-.error-page
-  height: 100%
-  display: flex
-  align-items: center
-
-  .content
-    @extend %common-container
-    display: flex
-    justify-content: center
-    align-items: center
-    +media((flex-direction: (0: column, 768: row)))
-</style>
