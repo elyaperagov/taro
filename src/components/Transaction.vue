@@ -25,7 +25,7 @@ export default {
       link: 'jsdmj4tj3nt458ngn4g',
       src: require('@/assets/img/close.png'),
       alt: 'close',
-      showModal: false
+      showModal: true
     }
   },
   created() {
