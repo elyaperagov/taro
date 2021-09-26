@@ -3,7 +3,7 @@
     <div class="minting__texts">
       <h2 class="minting__title">
         Minting starts in
-        {{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}
+        <p>{{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}</p>
       </h2>
     </div>
   </div>

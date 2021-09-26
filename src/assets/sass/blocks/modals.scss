@@ -4,58 +4,129 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: $color-light-brown;
+  background: rgba(0, 0, 0, 0.8);
   z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: $transition-settings;
 }
 
 .modal__body {
   overflow-x: auto;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   text-align: center;
-}
 
-.modal__close {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  .icon {
-    stroke: $color-black;
-    opacity: 0.5;
-    transition: $transition-settings;
-    cursor: pointer;
+  background-image: url('~@/assets/img/transaction-frame.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 300px;
 
-    &:hover {
-      opacity: 1;
+  margin-top: 48px;
+
+  padding: 25px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $tablets-max) {
+    padding: 20px 0;
+  }
+
+  @media (max-width: 699px) {
+    background-image: url('~@/assets/img/frame-mobile.png');
+    background-size: inherit;
+    width: 335px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 370px) {
+    background-size: contain;
+
+    width: 300px;
+  }
+
+  h3 {
+    text-align: center;
+
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 63px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+    @media (max-width: $tablets-max) {
+      font-size: 45px;
+      line-height: 40px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: $mobiles-max) {
+      margin-top: 10px;
+      margin-bottom: 5px;
+
+      font-size: 35px;
+      line-height: 30px;
+    }
+
+    @media (max-width: 699px) {
+      font-size: 25px;
+      line-height: 30px;
     }
   }
 
-  @media (max-width: $mobiles-max) {
-    top: 20px;
-    right: 10px;
+  a {
+    font-family: 'Macondo', sans-serif;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 99px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: $color-red;
+
+    text-decoration-line: underline;
+
+    @media (max-width: 1199px) {
+      font-size: 45px;
+      line-height: 40px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: $mobiles-max) {
+      margin-top: 10px;
+      margin-bottom: 5px;
+
+      font-size: 35px;
+      line-height: 30px;
+    }
+
+    @media (max-width: 699px) {
+      font-size: 25px;
+      line-height: 30px;
+    }
   }
-
 }
 
-.modal__wrapper {
-  background: $color-white;
-  width: 100%;
-  max-width: $container;
-  margin: auto;
-}
-
-.modal__content {
-  padding: 60px 70px;
+.modal__texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .message {

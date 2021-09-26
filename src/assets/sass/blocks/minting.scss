@@ -1,14 +1,12 @@
 .minting {
   position: relative;
   min-height: 295px;
-  // border-top: 4px solid #ffffff;
-  // border-bottom: 4px solid #ffffff;
-  // background-image: url('~@/assets/img/frame.png');
 
   background-repeat: no-repeat;
   background-size: auto;
   font-family: 'Macondo', sans-serif;
   background-position: top center;
+  transition: $transition-settings;
 
   margin-top: 20px;
 
@@ -25,14 +23,37 @@
     background-size: inherit;
   }
 
+  @media (max-width: 500px) {
+    margin-top: -110px;
+  }
+
   @media (max-width: 370px) {
     background-size: contain;
   }
 }
 
-// .minting__title {
-//   text-align: center;
-// }
+.minting__title {
+  text-align: center;
+
+  p {
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 99px;
+
+    margin: 40px 0 0;
+    letter-spacing: 12px;
+    line-height: 65px;
+
+    @media (max-width: $mobiles-max) {
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 48px;
+      margin: 10px 0;
+    }
+  }
+}
 
 .minting__texts {
   font-family: 'Macondo', sans-serif;
@@ -55,6 +76,7 @@
 
   @media (max-width: $mobiles-max) {
     padding: 30px 0;
+    min-height: 216px;
   }
 
   &:before {
@@ -138,7 +160,7 @@
   height: 58px;
   background-image: url('~@/assets/img/minting-divider.svg');
   width: 100%;
-  margin: 90px auto 0;
+  margin: 100px auto 0;
   background-size: contain;
   background-position: center;
 
@@ -174,7 +196,7 @@
     border: none;
     background: #000;
     color: #fff !important;
-    padding: .5rem;
+    padding: 0.5rem;
     text-overflow: ellipsis;
     outline: none;
 
@@ -193,7 +215,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
