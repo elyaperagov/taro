@@ -36,15 +36,17 @@ export default {
       default: null
     }
   },
-  data: () => ({
-    leftCount: null,
-    currentCount: 2,
-    oracleContract: null,
-    etheremuraCount: null,
-    totalCount: null,
-    isPaused: null,
-    price: 0.02 * delimiter
-  }),
+  data() {
+    return {
+      leftCount: null,
+      currentCount: 2,
+      oracleContract: null,
+      etheremuraCount: null,
+      totalCount: null,
+      isPaused: null,
+      price: 0.02 * delimiter
+    }
+  },
   computed: {
     currentPrice() {
       return this.currentCount * (this.price / delimiter)

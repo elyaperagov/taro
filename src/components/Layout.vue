@@ -32,9 +32,11 @@ export default {
       default: null
     }
   },
-  data: () => ({
-    isCounterShow: false
-  }),
+  data() {
+    return {
+      isCounterShow: false
+    }
+  },
   methods: {
     showCounter() {
       this.isCounterShow = true

@@ -1,26 +1,24 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Notifications from 'vue-notification'
-
 import Helpers from './lib/Helpers.js'
-Vue.use(Helpers)
+import router from '@/router'
+import VueMeta from 'vue-meta'
 
 Vue.config.productionTip = false
+Vue.use(Helpers)
 Vue.use(Notifications)
+Vue.use(VueMeta, {
+  // optional pluginOptions
+  refreshOnceOnNavigation: true
+})
 
 new Vue({
   data() {
     return {
       window_top: 0,
-      header_top: 0,
-      header_height: 90,
-      offsetLeft: 0,
       width: null,
       height: null,
-      timeout_stick: null,
-      bowser: {},
-      ym_counter: null,
-      recaptcha_key: null,
       tabletBreakpoint: 1025,
       mobileBreakpoint: 768
     }
@@ -44,11 +42,6 @@ new Vue({
     addListeners() {
       window.addEventListener('scroll', this.onScroll)
       window.addEventListener('resize', this.onResize)
-      window.onload = () => {
-        setTimeout(() => {
-          this.getOffsetLeft()
-        }, 500)
-      }
     },
     onScroll(e) {
       this.window_top = window.pageYOffset
@@ -56,17 +49,9 @@ new Vue({
     onResize(state) {
       this.width = window.innerWidth
       this.height = window.innerHeight
-      this.$store.commit('setMenuClosed', state)
       document.body.classList.remove('scroll-off')
-      this.getOffsetLeft()
-    },
-    getOffsetLeft() {
-      try {
-        this.offsetLeft =
-          document.querySelector('footer .container').offsetLeft +
-          document.querySelector('footer .container').offsetWidth
-      } catch (error) {}
     }
   },
+  router,
   render: h => h(App)
 }).$mount('#app')

@@ -1,3 +1,4 @@
+/* eslint-disable prettier-vue/prettier */
 export const contractAddress = '0x9388926eca492e867f9cbe0630243f9595df958f'
 export const abi = [{
   "inputs": [],

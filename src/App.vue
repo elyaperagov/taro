@@ -1,32 +1,15 @@
 <template>
   <div id="__app">
-    <Sprite />
+    <sprite />
     <notifications group="app-notifications" />
     <app-header :is-wallet-connected="isWalletConnected" @connectMetaMask="connectMetaMask" />
-    <Banner />
-    <Minting />
-    <About />
-    <Cards />
-    <Roadmap />
-    <Team />
-    <Faq />
-    <Thanks />
-    <!-- <layout :current-wallet="currentWallet" /> -->
+    <router-view :current-wallet="currentWallet" />
   </div>
 </template>
 
 <script>
-// import Layout from '@/components/dump/Layout'
 import Sprite from '@/components/Sprite'
 import AppHeader from '@/components/AppHeader'
-import Banner from '@/components/Banner'
-import Minting from '@/components/Minting'
-import About from '@/components/About'
-import Cards from '@/components/Cards'
-import Roadmap from '@/components/Roadmap'
-import Team from '@/components/Team'
-import Faq from '@/components/Faq'
-import Thanks from '@/components/Thanks'
 
 const requestMethods = {
   getAccountsList: 'eth_accounts',
@@ -39,23 +22,15 @@ export default {
   name: 'App',
   components: {
     AppHeader,
-    Sprite,
-    Banner,
-    Minting,
-    About,
-    Cards,
-    Roadmap,
-    Team,
-    Faq,
-    Thanks
-    // Layout
+    Sprite
   },
-  data: () => ({
-    isMeteMaskInstalled: false,
-    // isModalOpen: false,
-    isWalletConnected: false,
-    currentWallet: null
-  }),
+  data() {
+    return {
+      isMeteMaskInstalled: false,
+      isWalletConnected: false,
+      currentWallet: null
+    }
+  },
   mounted() {
     const { ethereum } = window
     this.isMeteMaskInstalled = !!ethereum?.isMetaMask
@@ -80,7 +55,6 @@ export default {
           title: 'MetaMask is not installed',
           text: `<a href="https://metamask.io/download.html" target="_blank">Download here</a>`
         })
-        // this.isModalOpen = true
       }
     },
     setWalletConnectionStatus(accounts) {

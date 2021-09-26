@@ -8,12 +8,14 @@
 <script>
 export default {
   name: 'CountDown',
-  data: () => ({
-    endTime: new Date('2021-09-10T23:00:00.000+03:00').getTime(),
-    hours: null,
-    minutes: null,
-    seconds: null
-  }),
+  data() {
+    return {
+      endTime: new Date('2021-09-10T23:00:00.000+03:00').getTime(),
+      hours: null,
+      minutes: null,
+      seconds: null
+    }
+  },
   computed: {
     computedValues() {
       const { hours, minutes, seconds } = this
