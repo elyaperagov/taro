@@ -1,7 +1,7 @@
 <template>
   <div id="roadmap" class="roadmap">
     <div class="container">
-      <h3>{{ title }}</h3>
+      <h3 class="roadmap__title">{{ title }}</h3>
       <div class="roadmap__inner">
         <div
           v-for="(item, i) in points"

@@ -2,7 +2,7 @@
   <section id="team" class="team">
     <div class="container">
       <div class="team__inner">
-        <h3>{{ title }}</h3>
+        <h3 class="team__title">{{ title }}</h3>
         <div class="team__image">
           <img :src="image.src" :alt="image.alt" />
         </div>
