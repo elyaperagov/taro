@@ -13,6 +13,10 @@
 .faq__texts {
   margin-top: 103px;
 
+  @media (max-width: $tablets-max) {
+    margin-top: 40px;
+  }
+
   @media (max-width: $mobiles-max) {
     margin-top: 66px;
   }

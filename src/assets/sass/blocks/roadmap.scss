@@ -2,7 +2,7 @@
   // min-height: 1170px;
   margin: 100px 0 0;
 
-  @media (max-width: $mobiles-max) {
+  @media (max-width: $tablets-max) {
     margin: 40px 0 15px;
   }
 }
@@ -17,7 +17,11 @@
 }
 
 .roadmap__title {
-  margin-bottom: 15px;
+  margin-bottom: 0;
+
+  @media (max-width: $tablets-max) {
+    margin-bottom: 0;
+  }
 
   @media (max-width: $mobiles-max) {
     margin-bottom: 40px;

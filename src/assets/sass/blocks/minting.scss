@@ -12,8 +12,21 @@
 
   margin-top: 20px;
 
+  @media (max-width: 1399px) {
+    margin-top: 0;
+  }
+
+  @media (max-width: $tablets-max) {
+    margin-top: 20px;
+  }
+
   @media (max-width: $mobiles-max) {
     background-image: url('~@/assets/img/frame-mobile.png');
+    background-size: inherit;
+  }
+
+  @media (max-width: 370px) {
+    background-size: contain;
   }
 }
 
@@ -137,6 +150,10 @@
   margin: 90px auto 0;
   background-size: contain;
   background-position: center;
+
+  @media (max-width: $tablets-max) {
+    margin: 20px auto 0;
+  }
 
   @media (max-width: $mobiles-max) {
     background-image: url('~@/assets/img/minting-divider-mob.svg');

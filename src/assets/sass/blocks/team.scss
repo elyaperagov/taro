@@ -9,6 +9,10 @@
     margin-top: 0;
   }
 
+  @media (max-width: $tablets-max) {
+    padding: 60px 0;
+  }
+
   @media (max-width: $mobiles-max) {
     padding: 3px 0;
   }
@@ -50,6 +54,11 @@
   margin-top: 50px;
 
   margin-bottom: 45px;
+
+  @media (max-width: $tablets-max) {
+    height: 400px;
+    margin-bottom: 28px;
+  }
 
   @media (max-width: $mobiles-max) {
     height: 190px;
@@ -107,6 +116,10 @@
 }
 
 .team__title {
+  @media (max-width: $tablets-max) {
+    text-align: center;
+  }
+
   @media (max-width: $mobiles-max) {
     display: none;
   }

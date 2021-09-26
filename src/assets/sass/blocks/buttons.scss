@@ -79,6 +79,19 @@
       transition: $transition-settings;
     }
 
+    @media (max-width: 1499px) {
+      right: 15px;
+    }
+
+    @media (max-width: $tablets-max) {
+      right: 5.5%;
+      top: 28px
+    }
+
+    @media (max-width: $mobiles-max) {
+      right: 22px;
+    }
+
     &.close {
       &:before {
         visibility: hidden;

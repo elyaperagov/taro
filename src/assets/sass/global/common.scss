@@ -330,6 +330,16 @@ table {
       padding-right: 15px;
       padding-left: 15px;
     }
+
+    @media (max-width: $tablets-max) {
+      padding-right: 5.5%;
+      padding-left: 5.5%;
+    }
+
+    @media (max-width: $mobiles-max) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
   }
 
   &--relative {
