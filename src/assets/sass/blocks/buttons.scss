@@ -219,4 +219,41 @@
       border: 3px solid transparent;
     }
   }
+
+  &--close-modal {
+    position: absolute;
+    content: '';
+    width: 35px;
+    height: 30px;
+    top: 40px;
+    right: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @media (max-width: $tablets-max) {
+      top: 60px;
+      right: 25px;
+    }
+
+    @media (max-width: 999px) {
+      top: 70px;
+      right: 25px;
+    }
+
+    @media (max-width: 899px) {
+      top: 80px;
+      right: 25px;
+    }
+
+    @media (max-width: 699px) {
+      top: 55px;
+      right: 20px;
+    }
+
+    @media (max-width: 370px) {
+      right: 10px;
+    }
+  }
 }
