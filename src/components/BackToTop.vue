@@ -1,8 +1,8 @@
 <template>
   <transition name="back-to-top-fade">
-    <button class="back-to-top" v-on:click="backToTop" v-show="isScrolled">
+    <button v-show="isScrolled" class="back-to-top" @click="backToTop">
       <svg class="back-to-top__icon" width="26" height="15" aria-hidden="true">
-        <use v-bind:xlink:href="icon"></use>
+        <use :xlink:href="icon"></use>
       </svg>
     </button>
   </transition>
