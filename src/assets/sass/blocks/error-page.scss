@@ -1,0 +1,105 @@
+.error-page {
+  position: relative;
+  // overflow: hidden;
+
+  &:after {
+    position: absolute;
+    content: '';
+    right: 0px;
+    top: 8px;
+    width: 360px;
+    height: 415px;
+    z-index: -1;
+    background-image: url('~@/assets/img/pseudo-1.svg');
+    background-repeat: no-repeat;
+
+    @media (max-width: 499px) {
+      display: none;
+    }
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    bottom: -410px;
+    width: 360px;
+    height: 360px;
+    z-index: -1;
+    background-image: url('~@/assets/img/pseudo-2.svg');
+    background-repeat: no-repeat;
+
+    @media (max-width: 499px) {
+      display: none;
+    }
+  }
+}
+
+.error-page__inner {
+  text-align: center;
+  background-image: url('~@/assets/img/404-frame.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 487px;
+
+  margin-top: 48px;
+
+  padding: 114px 0 52px;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $tablets-max) {
+    padding: 145px 0 52px;
+  }
+
+  @media (max-width: $mobiles-max) {
+    padding: 170px 0 52px;
+
+    @media (max-width: $mobiles-max) {
+      background-image: url('~@/assets/img/frame-mobile.png');
+      background-size: inherit;
+    }
+  }
+
+  @media (max-width: 370px) {
+    background-size: contain;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 160px;
+    font-weight: 400;
+
+    @media (max-width: $tablets-max) {
+      font-size: 70px;
+    }
+  }
+
+  h3 {
+    text-align: center;
+
+    font-family: Verdana;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 63px;
+    margin-top: 58px;
+    margin-bottom: 40px;
+
+    @media (max-width: $tablets-max) {
+      font-size: 26px;
+
+      line-height: 40px;
+
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: $mobiles-max) {
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  }
+}

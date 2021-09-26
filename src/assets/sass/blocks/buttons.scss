@@ -170,4 +170,53 @@
       border: 3px solid transparent;
     }
   }
+
+  &--error {
+    background: $color-red;
+    font-family: 'Macondo', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+
+    padding: 5px 0;
+    width: 255px;
+
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid transparent;
+    color: $color-default-white;
+
+    @media (max-width: $tablets-max) {
+      padding: 0;
+    }
+
+    @media (max-width: $mobiles-max) {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+
+      padding: 10px 0;
+
+      width: 180px;
+    }
+
+    &:hover {
+      background: $color-black;
+      border: 3px solid $color-red;
+      color: $color-default-white !important;
+    }
+
+    &:active {
+      background: $color-gold;
+      border: 3px solid transparent;
+    }
+
+    &:disabled {
+      background: #3c3c3c;
+      color: #686868;
+      border: 3px solid transparent;
+    }
+  }
 }

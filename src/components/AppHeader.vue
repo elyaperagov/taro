@@ -185,6 +185,7 @@ export default {
     },
     async goTo(link) {
       if (!this.$scrollTo(link)) {
+        await this.$router.push({ path: '/' })
         setTimeout(() => {
           this.$scrollTo(link)
         }, 500)

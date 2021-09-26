@@ -1,10 +1,12 @@
 <template>
   <main>
     <section class="error-page">
-      <div class="content">
-        <h1>404</h1>
-        <h3>Page not found</h3>
-        <router-link class="router-link" to="/">Go to home page</router-link>
+      <div class="container">
+        <div class="error-page__inner">
+          <h1>404</h1>
+          <h3>Page not found</h3>
+          <router-link class="button button--error" to="/">Go to home page</router-link>
+        </div>
       </div>
     </section>
   </main>
