@@ -4,12 +4,19 @@ module.exports = {
     node: true
   },
   extends: ['plugin:vue/recommended', '@vue/standard', 'plugin:prettier-vue/recommended'],
+  plugins: [
+    "prettier",
+    "prettier-vue/recommended"
+  ],
   parserOptions: {
     parser: 'babel-eslint'
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    "prettier/prettier": ["error", {
+      "endOfLine": "auto"
+    }],
   }
 }
