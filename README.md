@@ -1,4 +1,4 @@
-# katana
+# Taro
 
 ## Project setup
 ```
