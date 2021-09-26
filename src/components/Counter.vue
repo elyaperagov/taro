@@ -126,7 +126,7 @@ export default {
         this.mint()
       }
     },
-    mint(count) {
+    mint() {
       const { oracleContract, currentWallet, price, currentCount, web3Handler } = this
 
       oracleContract.methods
