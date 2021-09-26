@@ -153,7 +153,7 @@ export default {
         }
       ],
       linkCards: {
-        link: 'https://opensea.io/account/oracle',
+        link: 'https://opensea.io/account/oraclenft',
         text: 'My Cards'
       }
     }

@@ -2,7 +2,7 @@
   <section id="mint" class="minting">
     <div class="container container--relative">
       <div class="minting__body">
-        <counter v-if="isCounterShow" :current-wallet="currentWallet" />
+        <counter v-if="isCounterShow || $route.name == 'Premint'" :current-wallet="currentWallet" />
         <count-down v-else @showCounter="showCounter" />
       </div>
       <div class="minting__divider"></div>
@@ -28,6 +28,7 @@ export default {
       isCounterShow: false
     }
   },
+  mounted() {},
   methods: {
     showCounter() {
       this.isCounterShow = true

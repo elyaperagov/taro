@@ -3,6 +3,12 @@
     <sprite />
     <back-to-top />
     <notifications group="app-notifications" />
+    <notifications
+      group="modal-notifications"
+      :classes="'modal-notification vue-notification'"
+      width="500px"
+      position="top center"
+    />
     <app-header :is-wallet-connected="isWalletConnected" @connectMetaMask="connectMetaMask" />
     <router-view :current-wallet="currentWallet" />
   </div>

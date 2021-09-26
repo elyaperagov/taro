@@ -14,7 +14,7 @@ export default {
   name: 'CountDown',
   data() {
     return {
-      endTime: new Date('2021-09-28T00:00:00.000+03:00').getTime(),
+      endTime: new Date('2021-09-29T00:00:00.000+03:00').getTime(),
       hours: null,
       minutes: null,
       seconds: null
@@ -34,7 +34,7 @@ export default {
     setInterval(() => {
       const currentTime = new Date().getTime()
       const distance = this.endTime - currentTime
-      this.hours = Math.floor((distance % (1000 * 60 * 60 * 48)) / (1000 * 60 * 60))
+      this.hours = Math.floor((distance % (1000 * 60 * 60 * 72)) / (1000 * 60 * 60))
       this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
       this.seconds = Math.floor((distance % (1000 * 60)) / 1000)
       if (distance < 0) {

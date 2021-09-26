@@ -41,7 +41,7 @@ export default {
         },
         {
           percent: 25,
-          sold: true,
+          sold: false,
           texts: [
             {
               text: 'Fortune Magnification'
@@ -54,7 +54,7 @@ export default {
         },
         {
           percent: 50,
-          sold: true,
+          sold: false,
           texts: [
             {
               text: 'These special Cards might appear instead of the Prediction Card you hold. Each has a different type of treasure. The rarer Card you hold or the more you have, the higher your chances to get it. '
@@ -67,7 +67,7 @@ export default {
         },
         {
           percent: 75,
-          sold: true,
+          sold: false,
           texts: [
             {
               text: 'Treasure Chest Cards with NFTs inside'

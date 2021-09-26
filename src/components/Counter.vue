@@ -3,16 +3,21 @@
     <div class="minting__texts">
       <h2 class="minting__title">Predictions Minted:</h2>
 
-      <p class="minting__current">{{ '&nbsp;' + computedLeftCount }} /</p>
+      <p class="minting__current">{{ '&nbsp;' + computedMintedCount }} /</p>
       <p class="minting__total">{{ '&nbsp;' + computedTotalCount }}</p>
     </div>
 
-    <div class="minting__buttons">
+    <div v-if="computedMintedCount < computedTotalCount" class="minting__buttons">
       <plus-minus-input :current-value.sync="currentCount" :max-value="20" :min-value="1" />
       <button class="button button--minting" @click="handleMint">
         Mint for {{ currentPrice }} Ξ
       </button>
     </div>
+    <template v-else>
+      <div class="minting__texts">
+        <h2 class="minting__title">SOLD OUT</h2>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -38,7 +43,7 @@ export default {
   },
   data() {
     return {
-      leftCount: null,
+      mintedCount: null,
       currentCount: 2,
       oracleContract: null,
       totalCount: null,
@@ -51,7 +56,10 @@ export default {
       return (this.currentCount * (this.price / delimiter)).toFixed(2)
     },
     computedLeftCount() {
-      return this.leftCount !== null ? this.totalCount - this.leftCount : unknown
+      return this.mintedCount !== null ? this.totalCount - this.mintedCount : unknown
+    },
+    computedMintedCount() {
+      return this.mintedCount !== null ? this.mintedCount : unknown
     },
     computedTotalCount() {
       return this.totalCount !== null ? this.totalCount : unknown
@@ -63,6 +71,7 @@ export default {
       immediate: true
     }
   },
+  mounted() {},
   methods: {
     async web3Handler() {
       this.oracleContract = new web3.eth.Contract(abi, contractAddress)
@@ -74,9 +83,9 @@ export default {
         oracleContract.methods.paused().call(),
         oracleContract.methods.getPrice(1).call()
       ])
-      const [totalCount, leftCount, isPaused, price] = response
+      const [totalCount, mintedCount, isPaused, price] = response
       this.totalCount = totalCount
-      this.leftCount = leftCount
+      this.mintedCount = mintedCount
       this.isPaused = isPaused
       this.price = price
     },
@@ -99,7 +108,7 @@ export default {
         return Promise.resolve(false)
       }
 
-      if (this.leftCount <= 0) {
+      if (this.computedLeftCount <= 0) {
         this.$notify({
           group: 'app-notifications',
           type: 'error',
@@ -128,9 +137,10 @@ export default {
         })
         .on('transactionHash', hash => {
           this.$notify({
-            group: 'app-notifications',
+            group: 'modal-notifications',
             type: 'success',
-            text: `<a href="https://etherscan.io/tx/${hash}">${hash}</a>`
+            text: `<a href="https://etherscan.io/tx/${hash}">${hash}</a>`,
+            duration: -1
           })
           web3Handler()
         })

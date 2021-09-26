@@ -5,7 +5,7 @@
         <use xlink:href="#minus"></use>
       </svg>
     </button>
-    <p>{{ computedValue }}</p>
+    <input ref="input" v-model.number="computedValue" type="number" />
     <button class="button button--minting-counter" :disabled="isIncreaseDisabled" @click="increase">
       <svg width="39" height="38" aria-hidden="true">
         <use xlink:href="#plus"></use>
@@ -48,6 +48,9 @@ export default {
     isDecreaseDisabled() {
       return this.currentValue <= this.minValue
     }
+  },
+  mounted() {
+    this.$refs.input.focus()
   },
   methods: {
     decrease() {

@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/views/HomePage'
 import ErrorPage from '@/views/ErrorPage'
-import PremintPage from '@/views/PremintPage'
 
 Vue.use(Router)
 
@@ -21,7 +20,7 @@ export default new Router({
     {
       path: '/premint/',
       name: 'Premint',
-      component: PremintPage,
+      component: HomePage,
       meta: {
         title: 'Premint'
       }

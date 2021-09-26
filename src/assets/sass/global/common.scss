@@ -457,6 +457,7 @@ table {
     background-color: $color-red !important;
   }
 }
+
 .icon {
   transition: $transition-settings;
 }
@@ -504,24 +505,34 @@ $endWidth: 320;
   $addSizeMid: $startSize - $midSize;
   $addSizeEnd: $midSize - $endSize;
   #{$property}: $startSize + px;
+
   @media (min-width: #{$midWidth + px}) {
-    #{$property}: calc(
-      #{$midSize + px} + #{$addSizeMid} * ((100vw - #{$midWidth + px}) / #{$startWidth - $midWidth})
-    );
+    #{$property}: calc(#{$midSize + px} + #{$addSizeMid} * ((100vw - #{$midWidth + px}) / #{$startWidth - $midWidth}));
   }
+
   @media (max-width: #{$midWidth + px}) {
-    #{$property}: calc(
-      #{$endSize + px} + #{$addSizeEnd} * ((100vw - #{$endWidth + px}) / #{$midWidth - $endWidth})
-    );
+    #{$property}: calc(#{$endSize + px} + #{$addSizeEnd} * ((100vw - #{$endWidth + px}) / #{$midWidth - $endWidth}));
   }
 }
 
 @mixin adb($property, $startSize, $endSize) {
   $addSize: $startSize - $endSize;
   #{$property}: $startSize + px;
+
   @media (max-width: #{$startWidth + px}) {
-    #{$property}: calc(
-      #{$endSize + px} + #{$addSize} * ((100vw - #{$endWidth + px}) / #{$startWidth - $endWidth})
-    );
+    #{$property}: calc(#{$endSize + px} + #{$addSize} * ((100vw - #{$endWidth + px}) / #{$startWidth - $endWidth}));
+  }
+}
+
+.modal-notification {
+
+  .notification-content {
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      cursor: pointer;
+    }
   }
 }
