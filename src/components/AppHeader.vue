@@ -78,15 +78,16 @@
           </div>
           <div class="header__sections">
             <div class="header__content-links">
-              <app-link
+              <a
                 v-for="(link, i) in content_links"
                 :key="i"
                 class="header__content-link"
                 :href="link.link"
                 target="_blank"
+                @click.prevent="goTo(link.link)"
               >
                 <span> {{ link.text }}</span>
-              </app-link>
+              </a>
             </div>
             <button class="button button--connect" @click="connectMetaMask">
               {{ connectButtonText }}

@@ -1,14 +1,15 @@
 .about {
   margin: 100px 0;
+
+  @media (max-width: $mobiles-max) {
+    margin: 40px 0;
+  }
 }
 
 
 .about__divider {
   content: '';
   right: 0;
-  /* bottom: -150px; */
-  /* left: 50%; */
-  /* transform: translate(-50%, 0); */
   background-repeat: no-repeat;
   width: 100%;
   height: 58px;
@@ -16,4 +17,11 @@
   width: 100%;
   background-size: contain;
   margin: 100px auto 0;
+  background-position: center;
+
+  @media (max-width: $mobiles-max) {
+    background-image: url('~@/assets/img/lottery-divider-mob.svg');
+    height: 20px;
+    margin: 28px auto 0;
+  }
 }

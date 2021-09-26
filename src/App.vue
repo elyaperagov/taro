@@ -10,6 +10,7 @@
     <Roadmap />
     <Team />
     <Faq />
+    <Thanks />
     <!-- <layout :current-wallet="currentWallet" /> -->
   </div>
 </template>
@@ -25,6 +26,7 @@ import Cards from '@/components/Cards'
 import Roadmap from '@/components/Roadmap'
 import Team from '@/components/Team'
 import Faq from '@/components/Faq'
+import Thanks from '@/components/Thanks'
 
 const requestMethods = {
   getAccountsList: 'eth_accounts',
@@ -44,7 +46,8 @@ export default {
     Cards,
     Roadmap,
     Team,
-    Faq
+    Faq,
+    Thanks
     // Layout
   },
   data: () => ({

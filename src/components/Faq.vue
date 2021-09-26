@@ -2,7 +2,7 @@
   <section id="faq" class="faq">
     <div class="container">
       <div class="faq__inner">
-        <h3>{{ title }}</h3>
+        <h3 class="faq__title">{{ title }}</h3>
 
         <div class="faq__texts">
           <p v-for="(text, i) in texts" :key="i" class="faq__text">

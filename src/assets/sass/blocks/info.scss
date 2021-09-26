@@ -11,11 +11,23 @@
     .info__pictures {
       order: 2;
       margin-right: 0;
+
+      @media (max-width: $tablets-max) {
+        margin: 0 auto;
+      }
+
+      @media (max-width: $mobiles-max) {
+        order: 1;
+      }
     }
 
     .info__texts-wrapper {
       order: 1;
       margin-right: 2%;
+
+      @media (max-width: $mobiles-max) {
+        order: 2;
+      }
     }
   }
 }
@@ -68,6 +80,12 @@
     margin-bottom: 0;
   }
 
+  @media (max-width: $mobiles-max) {
+    height: 231px;
+    margin-bottom: 9px;
+    border: 3px solid #cecece;
+  }
+
   img {
     object-fit: contain;
     width: 100%;
@@ -85,6 +103,11 @@
     margin-right: 0;
   }
 
+  @media (max-width: $mobiles-max) {
+    padding: 42px 0;
+    margin-top: 12px;
+  }
+
   @media (max-width: 600px) {
     width: 100%;
   }
@@ -98,6 +121,8 @@
     height: 44px;
     background-image: url('~@/assets/img/cards-frame.svg');
     background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
   }
 
   &:after {
@@ -110,6 +135,12 @@
     transform: rotate(180deg);
     background-repeat: no-repeat;
     background-image: url('~@/assets/img/cards-frame.svg');
+    background-size: contain;
+    background-position: center;
+
+    @media (max-width: $mobiles-max) {
+      bottom: -10px;
+    }
   }
 }
 
@@ -128,6 +159,14 @@
     font-weight: 400;
     line-height: 30px;
     margin-bottom: 24px;
+
+    @media (max-width: $mobiles-max) {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      margin-bottom: 10px;
+    }
   }
 
   b {
@@ -137,6 +176,13 @@
     font-weight: 700;
     line-height: 30px;
     color: $color-gold;
+
+    @media (max-width: $mobiles-max) {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+    }
   }
 }
 
@@ -146,11 +192,19 @@
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  @media (max-width: $mobiles-max) {
+    margin-bottom: 15px;
+  }
 }
 
 .info__list {
   li {
     position: relative;
+
+    @media (max-width: $mobiles-max) {
+      margin-bottom: 4px;
+    }
 
     &:before {
       position: absolute;
@@ -160,6 +214,12 @@
       height: 18px;
       left: 0;
       top: 8px;
+
+      @media (max-width: $mobiles-max) {
+        background-image: url('~@/assets/img/star-mob.svg');
+        width: 10px;
+        height: 10px;
+      }
     }
 
     span {
@@ -168,10 +228,16 @@
       font-style: normal;
       font-weight: 400;
       line-height: 30px;
-      letter-spacing: 0em;
-      text-align: left;
 
       margin-left: 36px;
+
+      @media (max-width: $mobiles-max) {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 21px;
+        margin-left: 30px;
+      }
     }
   }
 }

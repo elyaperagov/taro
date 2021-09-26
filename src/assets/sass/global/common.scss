@@ -13,9 +13,13 @@ html {
 
 body {
   font-family: 'Verdana', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 150%;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+
   width: 100%;
   margin: auto;
   margin: 0 auto;
@@ -32,6 +36,13 @@ body {
   h4,
   h5 {
     color: $color-default-white;
+  }
+
+  @media (max-width: $mobiles-max) {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
   }
 }
 
@@ -269,7 +280,8 @@ p {
 }
 
 a {
-  color: $color-black;
+  // color: $color-black;
+  color: #de3c3c;
   text-decoration: none;
   transition: all 0.3s;
 
