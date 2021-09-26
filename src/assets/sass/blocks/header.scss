@@ -121,6 +121,10 @@ header {
   height: 100%;
   display: block;
 
+  @media (max-width: $tablets-max) {
+    margin-right: 15px;
+  }
+
   svg {
     stroke: $color-light-gray;
     fill: $color-light-gray;
