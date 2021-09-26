@@ -11,9 +11,7 @@
         >
           <h3>{{ item.percent + '%' + (i == 0 ? '' : ' SOLD') }}</h3>
 
-          <p v-for="(text, j) in item.texts" :key="j">
-            {{ text.text }}
-          </p>
+          <p v-for="(text, j) in item.texts" :key="j" v-html="text.text"></p>
         </div>
       </div>
     </div>
@@ -49,7 +47,7 @@ export default {
               text: 'Fortune Magnification'
             },
             {
-              text: 'This step includes such things as:・listing on Rarity.tools and Rarity Sniper; ・opening special holders-only channel ・starting cool weekly raffles・launch of server ranks and special roles'
+              text: 'This step includes such things as:<ul><li>listing on Rarity.tools and Rarity Sniper;</li> <li>opening special holders-only channel</li> <li>starting cool weekly raffles</li><li>launch of server ranks and special roles</li>'
             }
           ],
           class: 'roadmap__point--second'

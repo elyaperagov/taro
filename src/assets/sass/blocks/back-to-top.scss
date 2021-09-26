@@ -1,0 +1,67 @@
+.back-to-top {
+  position: fixed;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.3s;
+
+  color: $color-default-white;
+  border: none;
+  border-radius: 3px;
+  background-color: $color-gold;
+  transition: $transition-settings;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: 1px solid $color-red;
+    background-color: $color-default-black;
+  }
+}
+
+.back-to-top__icon {
+  fill: $color-default-white;
+}
+
+@media (max-width: $tablets-max) {
+  .back-to-top {
+    right: 15px;
+    bottom: 40px;
+
+    width: 30px;
+    height: 30px;
+  }
+
+  .back-to-top__icon {
+    width: 16px;
+    height: 9px;
+  }
+}
+
+@media (min-width: $desktops) {
+  .back-to-top {
+    right: 50px;
+    bottom: 50px;
+
+    width: 50px;
+    height: 50px;
+  }
+
+  .back-to-top__icon {
+    width: 26px;
+    height: 15px;
+  }
+}
+
+.back-to-top-fade-enter-active,
+.back-to-top-fade-leave-active {
+  transition: opacity 0.6s;
+}
+
+.back-to-top-fade-enter,
+.back-to-top-fade-leave-to {
+  opacity: 0;
+}

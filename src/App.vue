@@ -1,6 +1,7 @@
 <template>
   <div id="__app">
     <sprite />
+    <back-to-top />
     <notifications group="app-notifications" />
     <app-header :is-wallet-connected="isWalletConnected" @connectMetaMask="connectMetaMask" />
     <router-view :current-wallet="currentWallet" />
@@ -10,6 +11,7 @@
 <script>
 import Sprite from '@/components/Sprite'
 import AppHeader from '@/components/AppHeader'
+import BackToTop from '@/components/BackToTop.vue'
 
 const requestMethods = {
   getAccountsList: 'eth_accounts',
@@ -22,7 +24,8 @@ export default {
   name: 'App',
   components: {
     AppHeader,
-    Sprite
+    Sprite,
+    BackToTop
   },
   data() {
     return {

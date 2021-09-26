@@ -3,9 +3,9 @@
     <div class="container container--wide">
       <div v-if="!$root.isTablet" class="header__content">
         <div class="header__socials">
-          <app-link href="https://etheremura.io/" class="header__logo" target="_blank">
+          <router-link to="/" class="header__logo">
             <img src="@/assets/img/logo.svg" alt="logo" />
-          </app-link>
+          </router-link>
           <div class="header__social-links">
             <app-link
               v-for="(link, i) in social_links"
@@ -29,7 +29,7 @@
               :href="link.link"
               @click.prevent="goTo(link.link)"
             >
-              <span> {{ link.text }}</span>
+              {{ link.text }}
             </a>
             <a
               v-if="isWalletConnected"
@@ -46,14 +46,9 @@
         </div>
       </div>
 
-      <app-link
-        v-if="$root.isTablet"
-        href="https://etheremura.io/"
-        class="header__logo"
-        target="_blank"
-      >
+      <router-link v-if="$root.isTablet" to="/" class="header__logo">
         <img src="@/assets/img/logo.svg" alt="logo" />
-      </app-link>
+      </router-link>
 
       <button
         v-if="$root.isTablet"
@@ -94,7 +89,7 @@
                 target="_blank"
                 @click.prevent="goTo(link.link)"
               >
-                <span> {{ link.text }}</span>
+                {{ link.text }}
               </a>
             </div>
             <button class="button button--connect" @click="connectMetaMask">
@@ -175,6 +170,14 @@ export default {
   beforeDestroy() {
     window.removeEventListener('resize', this.menuClose)
     window.removeEventListener('scroll', this.menuClose)
+  },
+  created() {
+    const that = this
+    document.addEventListener('keyup', function (evt) {
+      if (evt.keyCode === 27) {
+        that.menuClose()
+      }
+    })
   },
   methods: {
     connectMetaMask() {
