@@ -1,5 +1,4 @@
 .cards {
-
 }
 
 .cards__divider {
@@ -16,6 +15,10 @@
   margin: 100px auto 0;
   background-size: contain;
   background-position: center;
+
+  @media (max-width: $tablets-max) {
+    margin: 20px auto 0;
+  }
 
   @media (max-width: $mobiles-max) {
     background-image: url('~@/assets/img/minting-divider-mob.svg');

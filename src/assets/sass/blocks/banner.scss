@@ -8,13 +8,23 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  transition: $transition-settings;
 
   display: block;
   margin: 0 auto;
   width: 100%;
 
+  @media (max-width: 1399px) {
+    margin-top: -200px;
+  }
+
   @media (max-width: $tablets-max) {
     min-height: 500px;
+    margin-top: 0;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: -150px;
   }
 }
 
@@ -43,6 +53,10 @@
 
   @media (max-width: $mobiles-max) {
     left: 22.5%;
+  }
+
+  @media (max-width: 600px) {
+    height: 11vh;
   }
 
   &:hover {
@@ -124,5 +138,3 @@
     opacity: 1;
   }
 }
-
-
