@@ -27,7 +27,7 @@ export default {
       points: [
         {
           percent: 0,
-          sold: true,
+          sold: false,
           texts: [
             {
               text: 'Fortune Generator Machine of O.R.A.C.L.E. is ALIVE!'
