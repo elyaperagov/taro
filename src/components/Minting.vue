@@ -2,7 +2,12 @@
   <section id="mint" class="minting">
     <div class="container container--relative">
       <div class="minting__body">
-        <counter v-if="isCounterShow || $route.name == 'Premint'" :current-wallet="currentWallet" />
+        <counter
+          v-if="isCounterShow || $route.name == 'Premint'"
+          :current-wallet="currentWallet"
+          :is-wallet-connected="isWalletConnected"
+          @connectMetaMask="connectMetaMask"
+        />
         <count-down v-else @showCounter="showCounter" />
       </div>
       <div class="minting__divider"></div>
@@ -21,6 +26,10 @@ export default {
     currentWallet: {
       type: String,
       default: null
+    },
+    isWalletConnected: {
+      type: Boolean,
+      required: true
     }
   },
   data() {
@@ -32,9 +41,10 @@ export default {
   methods: {
     showCounter() {
       this.isCounterShow = true
+    },
+    connectMetaMask() {
+      this.$emit('connectMetaMask')
     }
   }
 }
 </script>
-
-<style></style>

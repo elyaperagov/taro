@@ -536,3 +536,11 @@ $endWidth: 320;
     }
   }
 }
+
+.notification-content {
+  font-size: 0.8rem;
+
+  a {
+    color: $color-default-white !important;
+  }
+}

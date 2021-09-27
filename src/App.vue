@@ -4,7 +4,11 @@
     <back-to-top />
     <notifications group="app-notifications" />
     <app-header :is-wallet-connected="isWalletConnected" @connectMetaMask="connectMetaMask" />
-    <router-view :current-wallet="currentWallet" />
+    <router-view
+      :current-wallet="currentWallet"
+      :is-wallet-connected="isWalletConnected"
+      @connectMetaMask="connectMetaMask"
+    />
   </div>
 </template>
 

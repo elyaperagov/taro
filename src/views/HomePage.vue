@@ -1,7 +1,11 @@
 <template>
   <main>
     <banner />
-    <minting :current-wallet="currentWallet" />
+    <minting
+      :current-wallet="currentWallet"
+      :is-wallet-connected="isWalletConnected"
+      @connectMetaMask="connectMetaMask"
+    />
     <about />
     <cards />
     <roadmap />
@@ -37,6 +41,10 @@ export default {
     currentWallet: {
       type: String,
       default: null
+    },
+    isWalletConnected: {
+      type: Boolean,
+      required: true
     }
   },
   data() {
@@ -48,8 +56,11 @@ export default {
     return {
       title: this.$route.meta.title
     }
+  },
+  methods: {
+    connectMetaMask() {
+      this.$emit('connectMetaMask')
+    }
   }
 }
 </script>
-
-<style scoped lang="sass"></style>

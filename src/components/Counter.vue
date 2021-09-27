@@ -41,6 +41,10 @@ export default {
     currentWallet: {
       type: String,
       default: null
+    },
+    isWalletConnected: {
+      type: Boolean,
+      required: true
     }
   },
   data() {
@@ -94,6 +98,11 @@ export default {
       this.price = price
     },
     async isReadyToMint() {
+      if (!this.isWalletConnected) {
+        this.$emit('connectMetaMask')
+        return Promise.resolve(false)
+      }
+
       if (!this.currentWallet) {
         this.$notify({
           group: 'app-notifications',

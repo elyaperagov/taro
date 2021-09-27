@@ -184,10 +184,10 @@ export default {
       this.$emit('connectMetaMask')
     },
     async goTo(link) {
-      if (!this.$scrollTo(link)) {
+      if (!this.$scrollTo(link, -20)) {
         await this.$router.push({ path: '/' })
         setTimeout(() => {
-          this.$scrollTo(link)
+          this.$scrollTo(link, -20)
         }, 500)
       }
     },

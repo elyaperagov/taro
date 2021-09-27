@@ -1,7 +1,10 @@
 .banner {
   background-image: url('~@/assets/img/banner.jpg');
+  // min-height: 110vh;
+  // max-height: 1080px;
   min-height: 1080px;
   background-position: center;
+  // background-size: cover;
   background-size: contain;
   background-repeat: no-repeat;
   max-width: 1920px;
@@ -14,8 +17,22 @@
   margin: 0 auto;
   width: 100%;
 
+  margin-top: -200px;
+
+  @media (max-width: 1600px) {
+    margin-top: -250px;
+    // min-height: 900px;
+  }
+
   @media (max-width: 1399px) {
-    margin-top: -200px;
+    margin-top: -250px;
+    // min-height: 800px;
+  }
+
+  @media (max-width: 1100px) {
+    margin-top: -250px;
+    // min-height: 700px;
+    background-position: center;
   }
 
   @media (max-width: $tablets-max) {

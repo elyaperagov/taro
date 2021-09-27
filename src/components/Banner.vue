@@ -42,9 +42,9 @@ export default {
   },
   methods: {
     async goTo(link) {
-      if (!this.$scrollTo(link)) {
+      if (!this.$scrollTo(link, -20)) {
         setTimeout(() => {
-          this.$scrollTo(link)
+          this.$scrollTo(link, -20)
         }, 500)
       }
     }

@@ -4,9 +4,9 @@ header {
   z-index: 50;
   max-width: 1920px;
   margin: 0 auto;
+  position: relative;
 
-  @media (max-width: $tablets-max) {
-  }
+  @media (max-width: $tablets-max) {}
 }
 
 .header__logo {
