@@ -27,7 +27,7 @@ export default {
     return {
       title: 'Let’s get a better look at this Team of Freaks!',
       image: {
-        src: require('@/assets/img/team.jpg'),
+        src: require('@/assets/img/team-min.jpg'),
         alt: 'team'
       },
       members: [

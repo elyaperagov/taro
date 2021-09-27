@@ -46,11 +46,11 @@ export default {
           alt: 'card'
         },
         {
-          src: require('@/assets/img/card-3.jpg'),
+          src: require('@/assets/img/card-3-min.jpg'),
           alt: 'card'
         },
         {
-          src: require('@/assets/img/card-4.jpg'),
+          src: require('@/assets/img/card-4-min.jpg'),
           alt: 'card'
         }
       ]

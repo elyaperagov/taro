@@ -90,19 +90,19 @@ export default {
       ],
       pictures: [
         {
-          src: require('@/assets/img/card-5.jpg'),
+          src: require('@/assets/img/card-5-min.jpg'),
           alt: 'card'
         },
         {
-          src: require('@/assets/img/card-6.jpg'),
+          src: require('@/assets/img/card-6-min.jpg'),
           alt: 'card'
         },
         {
-          src: require('@/assets/img/card-7.jpg'),
+          src: require('@/assets/img/card-7-min.jpg'),
           alt: 'card'
         },
         {
-          src: require('@/assets/img/card-8.jpg'),
+          src: require('@/assets/img/card-8-min.jpg'),
           alt: 'card'
         }
       ]

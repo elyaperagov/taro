@@ -1,5 +1,5 @@
 .banner {
-  background-image: url('~@/assets/img/banner.jpg');
+  background-image: url('~@/assets/img/banner-min.jpg');
   // min-height: 110vh;
   // max-height: 1080px;
   min-height: 1080px;
@@ -82,7 +82,7 @@
 
   &:hover {
     background-repeat: no-repeat;
-    background-image: url('~@/assets/img/mint.png');
+    background-image: url('~@/assets/img/mint-min.png');
     background-size: contain;
     opacity: 1;
   }
@@ -126,7 +126,7 @@
 
   &:hover {
     background-repeat: no-repeat;
-    background-image: url('~@/assets/img/about.png');
+    background-image: url('~@/assets/img/about-min.png');
     background-size: contain;
     opacity: 1;
   }
@@ -189,7 +189,7 @@
 
   &:hover {
     background-repeat: no-repeat;
-    background-image: url('~@/assets/img/roadmap.png');
+    background-image: url('~@/assets/img/roadmap-min.png');
     background-size: contain;
     opacity: 1;
   }
@@ -257,7 +257,7 @@
 
   &:hover {
     background-repeat: no-repeat;
-    background-image: url('~@/assets/img/team.png');
+    background-image: url('~@/assets/img/team-min.png');
     background-size: contain;
     opacity: 1;
   }
