@@ -8,7 +8,7 @@
           </button>
           <div class="modal__texts">
             <h3>{{ title }}</h3>
-            <a :href="link"> {{ link }}</a>
+            <div v-if="link" v-html="link"></div>
           </div>
         </div>
       </div>
@@ -19,29 +19,35 @@
 <script>
 export default {
   name: 'Transaction',
+  props: {
+    link: {
+      type: String,
+      default: null
+    },
+    showModal: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       title: 'Your transaction',
-      link: 'jsdmj4tj3nt458ngn4g',
       src: require('@/assets/img/close.png'),
-      alt: 'close',
-      showModal: true
+      alt: 'close'
     }
   },
   created() {
-    const that = this
-    document.addEventListener('keyup', function (evt) {
+    document.addEventListener('keyup', evt => {
       if (evt.keyCode === 27) {
-        that.closeModal()
+        this.closeModal()
       }
     })
   },
   methods: {
     closeModal() {
       this.showModal = false
+      this.link = null
     }
   }
 }
 </script>
-
-<style></style>

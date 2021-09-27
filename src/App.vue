@@ -2,14 +2,7 @@
   <div id="__app">
     <sprite />
     <back-to-top />
-    <transaction />
     <notifications group="app-notifications" />
-    <notifications
-      group="modal-notifications"
-      :classes="'modal-notification vue-notification'"
-      width="500px"
-      position="top center"
-    />
     <app-header :is-wallet-connected="isWalletConnected" @connectMetaMask="connectMetaMask" />
     <router-view :current-wallet="currentWallet" />
   </div>
@@ -19,7 +12,6 @@
 import Sprite from '@/components/Sprite'
 import AppHeader from '@/components/AppHeader'
 import BackToTop from '@/components/BackToTop.vue'
-import Transaction from '@/components/Transaction.vue'
 
 const requestMethods = {
   getAccountsList: 'eth_accounts',
@@ -33,8 +25,7 @@ export default {
   components: {
     AppHeader,
     Sprite,
-    BackToTop,
-    Transaction
+    BackToTop
   },
   data() {
     return {

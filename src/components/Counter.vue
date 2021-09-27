@@ -18,6 +18,7 @@
         <h2 class="minting__title">SOLD OUT</h2>
       </div>
     </template>
+    <transaction :link.sync="link" :show-modal.sync="showModal" />
   </div>
 </template>
 
@@ -25,6 +26,7 @@
 import Web3 from 'web3'
 import { contractAddress, abi } from '@/utils/oracle.js'
 import PlusMinusInput from '@/components/PlusMinusInput'
+import Transaction from '@/components/Transaction.vue'
 
 const delimiter = 1e18
 const unknown = 'xxxxx'
@@ -34,7 +36,7 @@ const web3 = new Web3(
 )
 export default {
   name: 'Counter',
-  components: { PlusMinusInput },
+  components: { PlusMinusInput, Transaction },
   props: {
     currentWallet: {
       type: String,
@@ -48,7 +50,9 @@ export default {
       oracleContract: null,
       totalCount: null,
       isPaused: null,
-      price: null
+      price: null,
+      link: null,
+      showModal: false
     }
   },
   computed: {
@@ -136,12 +140,8 @@ export default {
           value: currentCount * price
         })
         .on('transactionHash', hash => {
-          this.$notify({
-            group: 'modal-notifications',
-            type: 'success',
-            text: `<a href="https://etherscan.io/tx/${hash}">${hash}</a>`,
-            duration: -1
-          })
+          this.link = `<a href="https://etherscan.io/tx/${hash}" target="_blank">${hash}</a>`
+          this.showModal = true
           web3Handler()
         })
         .on('error', error => {
