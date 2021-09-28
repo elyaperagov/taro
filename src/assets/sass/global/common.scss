@@ -538,9 +538,26 @@ $endWidth: 320;
 }
 
 .notification-content {
-  font-size: 0.8rem;
+  font-size: 1rem;
 
   a {
     color: $color-default-white !important;
   }
+}
+
+.vue-notification {
+  padding: 12px !important;
+  color: $color-default-white !important;
+  border-left: none !important;
+  margin: 0 !important;
+}
+
+.vue-notification.error {
+  background: $color-red !important;
+  border-left-color: $color-gold !important;
+}
+
+.vue-notification.success {
+  background: $color-gold !important;
+  border-left-color: $color-red !important;
 }
