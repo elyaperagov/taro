@@ -42,7 +42,7 @@
           </div>
           <button
             class="button button--connect"
-            :class="{ 'button--orange': isWalletConnected }"
+            :class="{ 'button--orange': isWalletConnected && $route.name == 'Premint' }"
             @click="connectMetaMask"
           >
             {{ connectButtonText }}
@@ -98,7 +98,7 @@
             </div>
             <button
               class="button button--connect"
-              :class="{ 'button--orange': isWalletConnected }"
+              :class="{ 'button--orange': isWalletConnected && $route.name == 'Premint' }"
               @click="connectMetaMask"
             >
               {{ connectButtonText }}
@@ -168,7 +168,11 @@ export default {
   },
   computed: {
     connectButtonText() {
-      return this.isWalletConnected ? 'Mint Prediction' : 'Connect Wallet'
+      return this.isWalletConnected
+        ? this.$route.name === 'Premint'
+          ? 'Mint Prediction'
+          : 'Connected'
+        : 'Connect Wallet'
     }
   },
   mounted() {
@@ -189,7 +193,7 @@ export default {
   },
   methods: {
     connectMetaMask() {
-      if (this.isWalletConnected) {
+      if (this.isWalletConnected && this.$route.name === 'Premint') {
         this.$scrollTo('#mint', -200)
       } else {
         this.$emit('connectMetaMask')
