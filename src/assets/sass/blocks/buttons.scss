@@ -54,6 +54,15 @@
     }
   }
 
+  &--orange {
+    background: $color-gold;
+
+    &:hover {
+      background: $color-black;
+      border: 3px solid $color-gold;
+    }
+  }
+
   &--toggle {
     width: 33px;
     position: absolute;

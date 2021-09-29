@@ -40,7 +40,11 @@
               <span> {{ linkCards.text }}</span>
             </a>
           </div>
-          <button class="button button--connect" @click="connectMetaMask">
+          <button
+            class="button button--connect"
+            :class="{ 'button--orange': isWalletConnected }"
+            @click="connectMetaMask"
+          >
             {{ connectButtonText }}
           </button>
         </div>
@@ -92,7 +96,11 @@
                 {{ link.text }}
               </a>
             </div>
-            <button class="button button--connect" @click="connectMetaMask">
+            <button
+              class="button button--connect"
+              :class="{ 'button--orange': isWalletConnected }"
+              @click="connectMetaMask"
+            >
               {{ connectButtonText }}
             </button>
           </div>
@@ -160,7 +168,7 @@ export default {
   },
   computed: {
     connectButtonText() {
-      return this.isWalletConnected ? 'Connected' : 'Connect Wallet'
+      return this.isWalletConnected ? 'Mint Prediction' : 'Connect Wallet'
     }
   },
   mounted() {
@@ -181,7 +189,11 @@ export default {
   },
   methods: {
     connectMetaMask() {
-      this.$emit('connectMetaMask')
+      if (this.isWalletConnected) {
+        this.$scrollTo('#mint', -200)
+      } else {
+        this.$emit('connectMetaMask')
+      }
     },
     async goTo(link) {
       if (!this.$scrollTo(link, -20)) {

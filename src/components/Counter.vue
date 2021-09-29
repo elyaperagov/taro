@@ -3,7 +3,16 @@
     <div class="minting__inner">
       <template v-if="!presaleIsStart">
         <div class="minting__texts">
-          <h2 class="minting__title">Pre-sale will start soon</h2>
+          <h2 class="minting__title">Pre-sale will start in:</h2>
+        </div>
+        <div class="minting__texts">
+          <h2 class="minting__title">
+            <p>
+              {{ computedValuesStart.hours }}:{{ computedValuesStart.minutes }}:{{
+                computedValuesStart.seconds
+              }}
+            </p>
+          </h2>
         </div>
       </template>
       <template v-if="presaleIsOver">
@@ -34,7 +43,9 @@
         <div class="minting__texts">
           <h2 class="minting__title">
             <p>
-              {{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}
+              {{ computedValuesEnd.hours }}:{{ computedValuesEnd.minutes }}:{{
+                computedValuesEnd.seconds
+              }}
             </p>
           </h2>
         </div>
@@ -102,10 +113,18 @@ export default {
     computedTotalCount() {
       return this.totalCount !== null ? this.totalCount : unknown
     },
-    computedValues() {
+    computedValuesEnd() {
       const { hours, minutes, seconds } = this
       return {
         hours: this.formatNumber(hours),
+        minutes: this.formatNumber(minutes),
+        seconds: this.formatNumber(seconds)
+      }
+    },
+    computedValuesStart() {
+      const { hours, minutes, seconds } = this
+      return {
+        hours: this.formatNumber(hours - 2),
         minutes: this.formatNumber(minutes),
         seconds: this.formatNumber(seconds)
       }
@@ -118,12 +137,26 @@ export default {
     }
   },
   mounted() {
+    this.scrollToMint()
     this.handleTimer()
     setInterval(() => {
       this.handleTimer()
     }, 1000)
   },
   methods: {
+    scrollToMint() {
+      let offset = 0
+      if (this.$root.width > 1700) {
+        offset = 400
+      } else if (this.$root.width > 1500) {
+        offset = 650
+      } else if (this.$root.width > 1000) {
+        offset = 600
+      } else if (this.$root.width > 768) {
+        offset = 100
+      }
+      this.$scrollTo('.banner', offset)
+    },
     handleTimer() {
       const currentTime = new Date().getTime()
       const distanceEnd = this.endTime - currentTime

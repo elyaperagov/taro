@@ -15,7 +15,9 @@ export default {
         }
         if (refs && ref) {
           target = refs[ref]
-          return false
+          if (!target) {
+            return false
+          }
         }
         let top = target.offsetTop
         if (!top && refs && ref) {
