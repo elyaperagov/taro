@@ -14,7 +14,7 @@ export default new Router({
       name: 'Home',
       component: HomePage,
       meta: {
-        title: 'Taro'
+        title: 'O.R.A.C.L.E. are the first NFT Predictions'
       }
     },
     {
@@ -22,7 +22,7 @@ export default new Router({
       name: 'Premint',
       component: HomePage,
       meta: {
-        title: 'Premint'
+        title: 'O.R.A.C.L.E. are the first NFT Predictions'
       }
     },
     {
