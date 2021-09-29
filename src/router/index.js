@@ -22,7 +22,7 @@ export default new Router({
       name: 'Premint',
       component: HomePage,
       meta: {
-        title: 'O.R.A.C.L.E. are the first NFT Predictions'
+        title: 'Pre-sale O.R.A.C.L.E. are the first NFT Predictions!'
       }
     },
     {

@@ -14,9 +14,7 @@
   background-color: $color-red;
   transition: $transition-settings;
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:hover {
     border: 1px solid $color-red;
     background-color: $color-default-black;
   }

@@ -20,14 +20,16 @@
 
   @media (max-width: $mobiles-max) {
     background-image: url('~@/assets/img/frame-mobile.png');
-    background-size: inherit;
+    background-size: contain;
+    max-width: 440px;
+    margin: 20px auto 0;
   }
 
   @media (max-width: 500px) {
     margin-top: -110px;
   }
 
-  @media (max-width: 370px) {
+  @media (max-width: 500px) {
     background-size: contain;
   }
 }
