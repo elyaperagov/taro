@@ -1,4 +1,4 @@
-# Taro
+# O.R.A.C.L.E. are the first NFT Predictions
 
 ## Project setup
 ```
