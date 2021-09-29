@@ -1,24 +1,45 @@
 <template>
   <div class="minting__inner">
-    <div class="minting__texts">
-      <h2 class="minting__title">Predictions Minted:</h2>
-
-      <p class="minting__current">{{ '&nbsp;' + computedMintedCount }} /</p>
-      <p class="minting__total">{{ '&nbsp;' + computedTotalCount }}</p>
-    </div>
-
-    <div v-if="computedMintedCount < computedTotalCount" class="minting__buttons">
-      <plus-minus-input :current-value.sync="currentCount" :max-value="10" :min-value="1" />
-      <button class="button button--minting" @click="handleMint">
-        Mint for {{ currentPrice }} Ξ
-      </button>
-    </div>
-    <template v-else>
+    <template v-if="!presaleIsStart">
       <div class="minting__texts">
-        <h2 class="minting__title">SOLD OUT</h2>
+        <h2 class="minting__title">Pre-sale will start soon</h2>
       </div>
     </template>
-    <transaction :link.sync="link" :show-modal.sync="showModal" />
+    <template v-if="presaleIsOver">
+      <div class="minting__texts">
+        <h2 class="minting__title">Pre-sale is over</h2>
+      </div>
+    </template>
+    <template v-if="presaleIsStart && !presaleIsOver">
+      <div class="minting__texts">
+        <h2 class="minting__title">Predictions Minted:</h2>
+
+        <p class="minting__current">{{ '&nbsp;' + computedMintedCount }} /</p>
+        <p class="minting__total">{{ '&nbsp;' + computedTotalCount }}</p>
+      </div>
+
+      <div v-if="computedMintedCount < computedTotalCount" class="minting__buttons">
+        <plus-minus-input :current-value.sync="currentCount" :max-value="10" :min-value="1" />
+        <button class="button button--minting" @click="handleMint">
+          Mint for {{ currentPrice }} Ξ
+        </button>
+      </div>
+      <template v-else>
+        <div class="minting__texts">
+          <h2 class="minting__title">SOLD OUT</h2>
+        </div>
+      </template>
+
+      <div class="minting__texts">
+        <h2 class="minting__title">
+          <p>
+            {{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}
+          </p>
+        </h2>
+      </div>
+
+      <transaction :link.sync="link" :show-modal.sync="showModal" />
+    </template>
   </div>
 </template>
 
@@ -56,7 +77,14 @@ export default {
       isPaused: null,
       price: null,
       link: null,
-      showModal: false
+      showModal: false,
+      endTime: new Date('2021-09-29T23:00:00.000+03:00').getTime(),
+      startTime: new Date('2021-09-29T21:00:00.000+03:00').getTime(),
+      hours: null,
+      minutes: null,
+      seconds: null,
+      presaleIsStart: false,
+      presaleIsOver: false
     }
   },
   computed: {
@@ -71,6 +99,14 @@ export default {
     },
     computedTotalCount() {
       return this.totalCount !== null ? this.totalCount : unknown
+    },
+    computedValues() {
+      const { hours, minutes, seconds } = this
+      return {
+        hours: this.formatNumber(hours),
+        minutes: this.formatNumber(minutes),
+        seconds: this.formatNumber(seconds)
+      }
     }
   },
   watch: {
@@ -79,8 +115,30 @@ export default {
       immediate: true
     }
   },
-  mounted() {},
+  mounted() {
+    this.handleTimer()
+    setInterval(() => {
+      this.handleTimer()
+    }, 1000)
+  },
   methods: {
+    handleTimer() {
+      const currentTime = new Date().getTime()
+      const distanceEnd = this.endTime - currentTime
+      const distanceStart = this.startTime - currentTime
+      this.hours = Math.floor((distanceEnd % (1000 * 60 * 60 * 72)) / (1000 * 60 * 60))
+      this.minutes = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60))
+      this.seconds = Math.floor((distanceEnd % (1000 * 60)) / 1000)
+      if (distanceStart < 0) {
+        this.presaleIsStart = true
+      }
+      if (distanceEnd < 0) {
+        this.presaleIsOver = true
+      }
+    },
+    formatNumber(number) {
+      return number < 10 ? `0${number}` : number
+    },
     async web3Handler() {
       this.oracleContract = new web3.eth.Contract(abi, contractAddress)
       const { oracleContract } = this
