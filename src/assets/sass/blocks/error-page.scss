@@ -69,11 +69,11 @@
 
   h1 {
     text-align: center;
-    font-size: 160px;
+    font-size: 150px;
     font-weight: 400;
 
     @media (max-width: $tablets-max) {
-      font-size: 70px;
+      font-size: 60px;
     }
   }
 
@@ -81,7 +81,7 @@
     text-align: center;
 
     font-family: Verdana;
-    font-size: 46px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: 63px;
@@ -89,7 +89,7 @@
     margin-bottom: 40px;
 
     @media (max-width: $tablets-max) {
-      font-size: 26px;
+      font-size: 24px;
 
       line-height: 40px;
 

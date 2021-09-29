@@ -3,12 +3,22 @@
     <div class="container container--relative">
       <div class="minting__body">
         <counter
-          v-if="isCounterShow || $route.name == 'Premint'"
+          v-if="$route.name == 'Premint'"
           :current-wallet="currentWallet"
           :is-wallet-connected="isWalletConnected"
           @connectMetaMask="connectMetaMask"
         />
-        <count-down v-else @showCounter="showCounter" />
+        <div v-else class="minting__inner">
+          <div class="minting__texts">
+            <h2 class="minting__title minting__title--small">
+              Pre-sale will be accessible via special link on Sep 29th! Find out the precise time
+              and the link you can 30 minutes prior in our
+              <a href="http://discord.gg/oracle" target="_blank">Discord</a> and
+              <a href="https://twitter.com/Oracle_ink" target="_blank">Twitter</a>. Don't forget to
+              turn your notifications ON!
+            </h2>
+          </div>
+        </div>
       </div>
       <div class="minting__divider"></div>
     </div>
@@ -17,11 +27,10 @@
 
 <script>
 import Counter from '@/components/Counter'
-import CountDown from '@/components/CountDown'
 
 export default {
   name: 'Minting',
-  components: { CountDown, Counter },
+  components: { Counter },
   props: {
     currentWallet: {
       type: String,

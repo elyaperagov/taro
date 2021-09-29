@@ -18,7 +18,7 @@ export default new Router({
       }
     },
     {
-      path: '/premint/',
+      path: '/presale666/',
       name: 'Premint',
       component: HomePage,
       meta: {

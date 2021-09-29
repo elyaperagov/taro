@@ -62,7 +62,7 @@
   h3 {
     text-align: center;
 
-    font-size: 46px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: 63px;
@@ -70,7 +70,7 @@
     margin-bottom: 30px;
 
     @media (max-width: $tablets-max) {
-      font-size: 45px;
+      font-size: 40px;
       line-height: 40px;
       margin-top: 10px;
       margin-bottom: 20px;
@@ -80,19 +80,19 @@
       margin-top: 10px;
       margin-bottom: 5px;
 
-      font-size: 35px;
+      font-size: 30px;
       line-height: 30px;
     }
 
     @media (max-width: 699px) {
-      font-size: 25px;
+      font-size: 22px;
       line-height: 30px;
     }
   }
 
   a {
     font-family: 'Macondo', sans-serif;
-    font-size: 72px;
+    font-size: 64px;
     font-style: normal;
     font-weight: 400;
     line-height: 99px;
@@ -103,7 +103,7 @@
     text-decoration-line: underline;
 
     @media (max-width: 1199px) {
-      font-size: 45px;
+      font-size: 40px;
       line-height: 40px;
       margin-top: 10px;
       margin-bottom: 20px;
@@ -113,12 +113,12 @@
       margin-top: 10px;
       margin-bottom: 5px;
 
-      font-size: 35px;
+      font-size: 30px;
       line-height: 30px;
     }
 
     @media (max-width: 699px) {
-      font-size: 25px;
+      font-size: 22px;
       line-height: 30px;
     }
   }

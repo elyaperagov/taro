@@ -19,6 +19,11 @@
 
   margin-top: -200px;
 
+  @media (min-width: 1921px) {
+    max-width: 100%;
+    height: 100vh;
+  }
+
   @media (max-width: 1600px) {
     margin-top: -250px;
     // min-height: 900px;
@@ -58,6 +63,12 @@
 
   @media (min-width: 1920px) {
     width: 270px;
+  }
+
+  @media (min-width: 1921px) {
+    width: 280px;
+    left: 24vw;
+    top: 66vh;
   }
 
   @media (max-width: 949px) {
@@ -103,6 +114,12 @@
     width: 340px;
   }
 
+  @media (min-width: 1921px) {
+    width: 350px;
+    top: 62vh;
+    left: 39vw;
+  }
+
   @include adb(top, 630, 560);
 
   @media (max-width: $tablets-max) {
@@ -145,6 +162,12 @@
 
   @media (min-width: 1920px) {
     width: 587px;
+  }
+
+  @media (min-width: 1921px) {
+    top: 62vh;
+    width: 580px;
+    left: 50.5vw;
   }
 
   @media (max-width: 1199px) {
@@ -209,12 +232,17 @@
 
   @include adb(top, 800, 600);
 
-
   @media (min-width: 1920px) {
     width: 340px;
     right: -5%;
   }
 
+  @media (min-width: 1921px) {
+    width: 360px;
+    right: -2vw;
+    height: 22vh;
+    top: 74vh;
+  }
 
   @media (max-width: $tablets-max) {
     @include adb(top, 390, 340);

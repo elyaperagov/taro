@@ -8,6 +8,7 @@
 
   &--cards {
     min-height: 875px;
+
     .info__pictures {
       order: 2;
       margin-right: 0;
@@ -17,8 +18,7 @@
         order: 1;
       }
 
-      @media (max-width: $mobiles-max) {
-      }
+      @media (max-width: $mobiles-max) {}
     }
 
     .info__texts-wrapper {
@@ -169,7 +169,7 @@
   }
 
   p {
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
@@ -186,7 +186,7 @@
 
   b {
     font-family: Verdana;
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: 30px;
@@ -239,7 +239,7 @@
 
     span {
       font-family: Verdana;
-      font-size: 20px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: 30px;

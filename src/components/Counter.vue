@@ -8,7 +8,7 @@
     </div>
 
     <div v-if="computedMintedCount < computedTotalCount" class="minting__buttons">
-      <plus-minus-input :current-value.sync="currentCount" :max-value="20" :min-value="1" />
+      <plus-minus-input :current-value.sync="currentCount" :max-value="10" :min-value="1" />
       <button class="button button--minting" @click="handleMint">
         Mint for {{ currentPrice }} Ξ
       </button>

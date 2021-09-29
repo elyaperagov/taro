@@ -13,7 +13,7 @@
 
   &--connect {
     background: $color-red;
-    font-size: 28px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 400;
     line-height: 33px;
@@ -130,7 +130,7 @@
     padding: 15px 0;
     background: $color-red;
     font-family: 'Macondo', sans-serif;
-    font-size: 42px;
+    font-size: 38px;
     font-style: normal;
     font-weight: 400;
     line-height: 58px;
@@ -144,7 +144,7 @@
     }
 
     @media (max-width: $mobiles-max) {
-      font-size: 20px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: 28px;
@@ -174,7 +174,7 @@
   &--error {
     background: $color-red;
     font-family: 'Macondo', sans-serif;
-    font-size: 28px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 400;
     line-height: 33px;
@@ -192,7 +192,7 @@
     }
 
     @media (max-width: $mobiles-max) {
-      font-size: 20px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: 28px;

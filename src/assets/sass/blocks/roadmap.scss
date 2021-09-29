@@ -57,12 +57,13 @@
       margin-bottom: 10px;
     }
   }
+
   h3 {
     margin-bottom: 15px;
   }
 
   p {
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 28px;
@@ -82,6 +83,7 @@
     content: '';
     background-color: $color-light-gray;
   }
+
   &--first {
     transform: translate(35%, 124px);
     width: 570px;
@@ -160,6 +162,7 @@
   &--fifth {
     width: 617px;
     transform: translate(7%, -340px);
+
     &:before {
       top: -103px;
       left: 14px;
@@ -214,8 +217,7 @@
       left: 3px;
     }
 
-    @media (max-width: $mobiles-max) {
-    }
+    @media (max-width: $mobiles-max) {}
   }
 
   &--sold {
