@@ -34,6 +34,9 @@ export default {
         },
         {
           text: 'Every Prediction is personal, and minted depending on your ETH address. Every 7 days all minted predictions are getting changed - your future is a motion, and can’t stay still.'
+        },
+        {
+          text: 'Verified Smart contract: <a href="https://etherscan.io/address/0x9388926eca492e867f9cbe0630243f9595df958f" target="_blank">0x9388926eca492e867f9cbe0630243f9595df958f</a>'
         }
       ],
       pictures: [
