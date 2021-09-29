@@ -104,6 +104,10 @@ h2 {
     letter-spacing: 0em;
     text-align: center;
   }
+
+  @media (max-width: 350px) {
+    font-size: 18px;
+  }
 }
 
 h3 {

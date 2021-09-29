@@ -1,45 +1,47 @@
 <template>
-  <div class="minting__inner">
-    <template v-if="!presaleIsStart">
-      <div class="minting__texts">
-        <h2 class="minting__title">Pre-sale will start soon</h2>
-      </div>
-    </template>
-    <template v-if="presaleIsOver">
-      <div class="minting__texts">
-        <h2 class="minting__title">Pre-sale is over</h2>
-      </div>
-    </template>
-    <template v-if="presaleIsStart && !presaleIsOver">
-      <div class="minting__texts">
-        <h2 class="minting__title">Predictions Minted:</h2>
-
-        <p class="minting__current">{{ '&nbsp;' + computedMintedCount }} /</p>
-        <p class="minting__total">{{ '&nbsp;' + computedTotalCount }}</p>
-      </div>
-
-      <div v-if="computedMintedCount < computedTotalCount" class="minting__buttons">
-        <plus-minus-input :current-value.sync="currentCount" :max-value="10" :min-value="1" />
-        <button class="button button--minting" @click="handleMint">
-          Mint for {{ currentPrice }} Ξ
-        </button>
-      </div>
-      <template v-else>
+  <div class="minting__body" :class="{ 'minting__body--long': presaleIsStart && !presaleIsOver }">
+    <div class="minting__inner">
+      <template v-if="!presaleIsStart">
         <div class="minting__texts">
-          <h2 class="minting__title">SOLD OUT</h2>
+          <h2 class="minting__title">Pre-sale will start soon</h2>
         </div>
       </template>
+      <template v-if="presaleIsOver">
+        <div class="minting__texts">
+          <h2 class="minting__title">Pre-sale is over</h2>
+        </div>
+      </template>
+      <template v-if="presaleIsStart && !presaleIsOver">
+        <div class="minting__texts">
+          <h2 class="minting__title">Predictions Minted:</h2>
 
-      <div class="minting__texts">
-        <h2 class="minting__title">
-          <p>
-            {{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}
-          </p>
-        </h2>
-      </div>
+          <p class="minting__current">{{ '&nbsp;' + computedMintedCount }} /</p>
+          <p class="minting__total">{{ '&nbsp;' + computedTotalCount }}</p>
+        </div>
 
-      <transaction :link.sync="link" :show-modal.sync="showModal" />
-    </template>
+        <div v-if="computedMintedCount < computedTotalCount" class="minting__buttons">
+          <plus-minus-input :current-value.sync="currentCount" :max-value="10" :min-value="1" />
+          <button class="button button--minting" @click="handleMint">
+            Mint for {{ currentPrice }} Ξ
+          </button>
+        </div>
+        <template v-else>
+          <div class="minting__texts">
+            <h2 class="minting__title">SOLD OUT</h2>
+          </div>
+        </template>
+
+        <div class="minting__texts">
+          <h2 class="minting__title">
+            <p>
+              {{ computedValues.hours }}:{{ computedValues.minutes }}:{{ computedValues.seconds }}
+            </p>
+          </h2>
+        </div>
+
+        <transaction :link.sync="link" :show-modal.sync="showModal" />
+      </template>
+    </div>
   </div>
 </template>
 
@@ -175,6 +177,15 @@ export default {
           group: 'app-notifications',
           type: 'error',
           text: 'Smart contract paused'
+        })
+        return Promise.resolve(false)
+      }
+
+      if (this.currentcount > 10) {
+        this.$notify({
+          group: 'app-notifications',
+          type: 'error',
+          text: 'Max tokens are 10'
         })
         return Promise.resolve(false)
       }

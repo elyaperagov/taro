@@ -1,14 +1,14 @@
 <template>
   <section id="mint" class="minting">
     <div class="container container--relative">
-      <div class="minting__body">
-        <counter
-          v-if="$route.name == 'Premint'"
-          :current-wallet="currentWallet"
-          :is-wallet-connected="isWalletConnected"
-          @connectMetaMask="connectMetaMask"
-        />
-        <div v-else class="minting__inner">
+      <counter
+        v-if="$route.name == 'Premint'"
+        :current-wallet="currentWallet"
+        :is-wallet-connected="isWalletConnected"
+        @connectMetaMask="connectMetaMask"
+      />
+      <div v-else class="minting__body">
+        <div class="minting__inner">
           <div class="minting__texts">
             <h2 class="minting__title minting__title--small">
               Pre-sale will be accessible via special link on Sep 29th! Find out the precise time
