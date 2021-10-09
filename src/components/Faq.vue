@@ -44,25 +44,21 @@ export default {
           info: '6666'
         },
         {
-          question: 'Is the reveal instant? ',
-          info: 'Yes, all Cards will be revealed straight away. '
+          question: 'Is the reveal instant?',
+          info: 'Yes, all Cards will be revealed straight away.'
         },
         {
           question: 'Are there any Predictions pre-sale?',
-          info: 'Early believers will mint their Predictions on Sep 29th for a few hours and the price will be only 0.04 ETH!! '
+          info: 'Early believers were able to mint their Predictions on Sep 29th for only 0.04 ETH'
         },
 
         {
           question: 'When does the general sale start?',
-          info: 'TBA! Stay tuned! '
+          info: 'The whole collection was sold out during pre-sale, so now you can buy only on <a href="https://opensea.io/collection/oraclenft" target="_blank">Opensea</a>'
         },
         {
           question: 'What blockchain will you be using?',
           info: 'We will be using the Ethereum Blockchain.'
-        },
-        {
-          question: 'How much will it be to mint one Prediction?',
-          info: 'We plan to set a mint price of 0.05 ETH'
         },
         {
           question: 'What are your secondary royalty fees?',
@@ -70,11 +66,11 @@ export default {
         },
         {
           question: 'Will there be giveaways?',
-          info: 'Yes! We`re working on it as well! There are a lot of planned collabs with other collections in upcoming days! Plus there will be awesome raffles! Additional information may be found in Discord Server <a href="http://discord.gg/oracle" target="_blank">here</a>'
+          info: 'Yes! We`re working on it as well! There are a lot of planned collabs with other collections in upcoming days! Plus there will be awesome raffles! Additional information may be found in Discord Server <a href="http://discord.gg/J75KCzq4nZ" target="_blank">here</a>'
         },
         {
           question: 'Do you have a roadmap?',
-          info: 'Check out the roadmap'
+          info: 'Yes! You can check it on the Roadmap tab here'
         }
       ]
     }

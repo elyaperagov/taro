@@ -126,7 +126,7 @@ export default {
       menuOpened: false,
       social_links: [
         {
-          href: 'https://opensea.io/collection/oraclenft ',
+          href: 'https://opensea.io/collection/oraclenft',
           icon: '#opensea'
         },
         {
@@ -134,7 +134,7 @@ export default {
           icon: '#twitter'
         },
         {
-          href: 'http://discord.gg/oracle',
+          href: 'http://discord.gg/J75KCzq4nZ',
           icon: '#discord'
         }
       ],
