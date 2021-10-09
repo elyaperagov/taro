@@ -1,7 +1,15 @@
 <template>
-  <div class="minting__body" :class="{ 'minting__body--long': presaleIsStart && !presaleIsOver }">
+  <div class="minting__body">
     <div class="minting__inner">
-      <template v-if="!presaleIsStart">
+      <div class="minting__texts">
+        <h2 class="minting__title">
+          SOLD OUT!
+          <br />
+          BUY ON
+          <a href="https://opensea.io/collection/oraclenft" target="_blank">OPENSEA</a>
+        </h2>
+      </div>
+      <!-- <template v-if="!presaleIsStart">
         <div class="minting__texts">
           <h2 class="minting__title">Pre-sale will start in:</h2>
         </div>
@@ -50,8 +58,8 @@
           </h2>
         </div>
 
-        <transaction :link.sync="link" :show-modal.sync="showModal" />
-      </template>
+      </template> -->
+      <transaction :link.sync="link" :show-modal.sync="showModal" />
     </div>
   </div>
 </template>
@@ -59,7 +67,7 @@
 <script>
 import Web3 from 'web3'
 import { contractAddress, abi } from '@/utils/oracle.js'
-import PlusMinusInput from '@/components/PlusMinusInput'
+// import PlusMinusInput from '@/components/PlusMinusInput'
 import Transaction from '@/components/Transaction.vue'
 
 const delimiter = 1e18
@@ -70,7 +78,7 @@ const web3 = new Web3(
 )
 export default {
   name: 'Counter',
-  components: { PlusMinusInput, Transaction },
+  components: { Transaction },
   props: {
     currentWallet: {
       type: String,
@@ -142,6 +150,9 @@ export default {
     setInterval(() => {
       this.handleTimer()
     }, 1000)
+
+    this.link = `<a href="https://etherscan.io/tx/asdasdavds2113" target="_blank">asdasdavds2113</a>`
+    this.showModal = true
   },
   methods: {
     scrollToMint() {
