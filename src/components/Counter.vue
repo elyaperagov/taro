@@ -151,8 +151,8 @@ export default {
       this.handleTimer()
     }, 1000)
 
-    this.link = `<a href="https://etherscan.io/tx/asdasdavds2113" target="_blank">asdasdavds2113</a>`
-    this.showModal = true
+    // this.link = `<a href="https://etherscan.io/tx/asdasdavds2113" target="_blank">asdasdavds2113</a>`
+    // this.showModal = true
   },
   methods: {
     scrollToMint() {
